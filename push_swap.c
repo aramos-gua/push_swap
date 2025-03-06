@@ -1,18 +1,30 @@
-int	arlen(int *nums)
-{
-	int	i;
+#include "push_swap.h" 
 
-	i = 0;
-	while (*nums)
+int	validate_input(char *str)
+{
+	while (*str)
 	{
-		i++;
+		if (*str == '-')
+		{
+			if (*(str - 1) != ' ')
+				return (1);
+			else if (!(ft_isdigit(*(str + 1))))
+				return (1);
+		}
+		else if (!(ft_isdigit(*str) || *str == ' '))
+			return (1);
+		str++;
 	}
-	return (i);
+	return (0);
 }
 
-void	push_swap(int *nums)
+int	main(int argc, char **argv)
 {
-	int	len;
+	char	*invalid;
 
-	len = arlen(nums);
+	invalid = "Error";
+	if (argc < 2)
+		ft_printf("%s\n", invalid);
+	else if (argc == 2 && (validate_input(argv[1])))
+		ft_printf("%s\n", invalid);
 }
