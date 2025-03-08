@@ -65,6 +65,14 @@ char	**split_argv(char *str, char c)
 		return (NULL);
 	while (words-- > 0)
 	{
+		if (i == 0)
+		{
+			array[i] = malloc(sizeof(char));
+			if (!array[i])
+				return (NULL);
+			array[i][0] = '\0';
+			i++;
+		}
 		array[i++] = fill_words(str, c);
 	}
 	array[i] = NULL;
