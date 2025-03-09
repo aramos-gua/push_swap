@@ -12,5 +12,13 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "libft/libft.h"
 
+typedef struct s_astk
+{
+  int     number;
+  t_list  next;
+} t_astk;
 
+char	**split_argv(char *str, char c);
+long  atoln(const char *str);

@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *str)
+#include "push_swap.h"
+
+long	atoln(const char *str)
 {
 	long		num;
 	int			sign;
@@ -23,7 +25,7 @@ int	ft_atoi(const char *str)
 	{
 		if (*str == '-')
 			sign *= -1;
-		if (*(str + 1) >= '0' && *(str + 1) <= '9')
+		if (ft_isdigit(*(str + 1)))
 		{
 			str++;
 			break ;
@@ -34,4 +36,3 @@ int	ft_atoi(const char *str)
 		num = num * 10 + (*str++ - '0');
 	return (num * sign);
 }
-

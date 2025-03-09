@@ -12,7 +12,9 @@ NAME = push_swap
 LIBFT = $(LIBFTDIR)/libft.a
 
 # Files
-SRC = ./push_swap.c
+SRC = ./push_swap.c\
+	  ./split_argv.c\
+	  ./atoln.c\
 
 OBJ = $(SRC:.c=.o)
 

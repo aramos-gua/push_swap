@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int	word_count(char *str, char c)
+static int	word_count(char *str, char c)
 {
 	int	words;
 	
@@ -30,7 +30,7 @@ int	word_count(char *str, char c)
 	return (words);
 }
 
-char	*fill_words(char *str, char c)
+static char	*fill_words(char *str, char c)
 {
 	static int	start_w = 0;
 	int			len_word;
@@ -67,7 +67,7 @@ char	**split_argv(char *str, char c)
 	{
 		if (i == 0)
 		{
-			array[i] = malloc(sizeof(char));
+			array[i] = malloc(1 * sizeof(char));
 			if (!array[i])
 				return (NULL);
 			array[i][0] = '\0';

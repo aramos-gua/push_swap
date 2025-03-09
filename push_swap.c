@@ -12,7 +12,7 @@
 
 #include "push_swap.h" 
 
-int	no_number(char *str)
+static int	isnt_number(char *str)
 {
 	if (!(*str == '-' || ft_isdigit(*str)))
 		return (1);
@@ -24,9 +24,19 @@ int	no_number(char *str)
 	return (0);
 }
 
+static int	is_repeated(int	number, t_astk **a)
+{
+	if (a == NULL)
+		return (0);
+	while (*a)
+	{
+		if (number == (*a)->number)
+			return (1);
+		a = (*a)->next;
+	}
+}
 
-
-void	validate_input(char **argv)
+static void	validate_input(char **argv, t_astk **a)
 {
 	int		i;
 	long	number;
@@ -34,25 +44,29 @@ void	validate_input(char **argv)
 	i = 1;
 	while (argv[i])
 	{
-		if (no_number(argv[i]))
-			ft_printf("Error");
+		if (isnt_number(argv[i]))
+			ft_printf("Error\n");
 		number = atoln((const char *)argv[i]);
+		if (number > INT_MAX || number < INT_MIN)
+			ft_printf("Error\n");
+		if (is_repeated(number, a))
+			ft_printf("Error\n");
+		i++;
 	}
-	return (0);
+	return ;
 }
 
 int	main(int argc, char **argv)
 {
-	char	*invalid;
-	t_list	*a;
-	t_list	*b;
+	t_astk	*a;
+	t_astk	*b;
 
 	a = NULL;
 	b = NULL;
-	invalid = "Error";
 	if (argc < 2 || (argc == 2 && argv[1][0] == '\0'))
-		ft_printf("%s\n", invalid);
+		ft_printf("Error\n");
 	else if (argc == 2)
 		argv = split_argv(argv[1], ' ');
-	validate_input(argv);
+	validate_input(argv, &a);
+	return (0);
 }
