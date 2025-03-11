@@ -6,13 +6,13 @@
 /*   By: aramos <alejandro.ramos.gua@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 14:10:25 by aramos            #+#    #+#             */
-/*   Updated: 2025/03/11 19:26:45 by Alejandro Ram    ###   ########.fr       */
+/*   Updated: 2025/03/11 19:41:38 by Alejandro Ram    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
 #include "libft/libft.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 typedef struct s_astk
 {
@@ -23,4 +23,4 @@ typedef struct s_astk
 
 char	  **split_argv(char *str, char c);
 long    atoln(const char *str);
-//t_astk	*last_node(t_astk *lst);
+t_astk	*last_node(t_astk *lst);

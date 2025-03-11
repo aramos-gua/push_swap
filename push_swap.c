@@ -6,22 +6,11 @@
 /*   By: aramos <alejandro.ramos.gua@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 14:10:30 by aramos            #+#    #+#             */
-/*   Updated: 2025/03/11 19:34:35 by Alejandro Ram    ###   ########.fr       */
+/*   Updated: 2025/03/11 19:51:30 by Alejandro Ram    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h" 
-
-static t_astk	*last_node(t_astk *lst)
-{
-	if (!lst)
-		return (NULL);
-	while (lst -> next != NULL)
-	{
-		lst = lst -> next;
-	}
-	return (lst);
-}
 
 static int	isnt_number(char *str)
 {
@@ -73,7 +62,7 @@ static void new_number(t_astk **a, int number)
 	}
 }
 
-static void	validate_input(char **argv, t_astk **a)
+static void	validate_input(char **argv, t_astk **a, int flag)
 {
 	int		i;
 	long	number;
@@ -82,7 +71,7 @@ static void	validate_input(char **argv, t_astk **a)
 	while (argv[i])
 	{
 		if (isnt_number(argv[i]))
-			ft_printf("Error\n");
+			(a, argv, flag);
 		number = atoln((const char *)argv[i]);
 		if (number > INT_MAX || number < INT_MIN)
 			ft_printf("Error\n");
@@ -105,6 +94,6 @@ int	main(int argc, char **argv)
 		ft_printf("Error\n");
 	else if (argc == 2)
 		argv = split_argv(argv[1], ' ');
-	validate_input(argv, &a);
+	validate_input(argv, &a, argc == 2);
 	return (0);
 }
