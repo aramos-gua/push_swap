@@ -6,11 +6,22 @@
 /*   By: aramos <alejandro.ramos.gua@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 14:10:30 by aramos            #+#    #+#             */
-/*   Updated: 2025/03/08 19:15:40 by aramos           ###   ########.fr       */
+/*   Updated: 2025/03/11 19:26:14 by Alejandro Ram    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h" 
+
+static t_astk	*last_node(t_astk *lst)
+{
+	if (!lst)
+		return (NULL);
+	while (lst -> next != NULL)
+	{
+		lst = lst -> next;
+	}
+	return (lst);
+}
 
 static int	isnt_number(char *str)
 {
@@ -24,15 +35,39 @@ static int	isnt_number(char *str)
 	return (0);
 }
 
-static int	is_repeated(int	number, t_astk **a)
+static int	is_repeated(int	number, t_astk *a)
 {
 	if (a == NULL)
 		return (0);
-	while (*a)
+	while (a)
 	{
-		if (number == (*a)->number)
+		if (number == a->number)
 			return (1);
-		a = (*a)->next;
+		a = a->next;
+	}
+	return (0);
+}
+
+static void new_number(t_astk **a, int number)
+{
+	t_astk	*box;
+	t_astk	*last_one;
+	
+	if (a == NULL)
+		return ;
+	box = malloc(sizeof(t_astk));
+	if (!box)
+		return ;
+	box->next = NULL;
+	box->number = number;
+	if (a == NULL)
+		*a = box;
+	else
+	{
+		last_one = last_node(*a);
+		last_one->next = box;
+		box->previous = last_one;
+		last_one->previous = box;
 	}
 }
 
@@ -49,8 +84,9 @@ static void	validate_input(char **argv, t_astk **a)
 		number = atoln((const char *)argv[i]);
 		if (number > INT_MAX || number < INT_MIN)
 			ft_printf("Error\n");
-		if (is_repeated(number, a))
+		if (is_repeated(number, *a))
 			ft_printf("Error\n");
+		new_number(a, number);
 		i++;
 	}
 	return ;
