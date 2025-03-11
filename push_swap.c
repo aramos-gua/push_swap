@@ -6,7 +6,7 @@
 /*   By: aramos <alejandro.ramos.gua@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 14:10:30 by aramos            #+#    #+#             */
-/*   Updated: 2025/03/11 19:26:14 by Alejandro Ram    ###   ########.fr       */
+/*   Updated: 2025/03/11 19:34:35 by Alejandro Ram    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,19 +55,21 @@ static void new_number(t_astk **a, int number)
 	
 	if (a == NULL)
 		return ;
-	box = malloc(sizeof(t_astk));
+	box = malloc(1 * sizeof(t_astk));
 	if (!box)
 		return ;
 	box->next = NULL;
 	box->number = number;
-	if (a == NULL)
+	if (*a == NULL)
+	{
 		*a = box;
+		box->previous = NULL;
+	}
 	else
 	{
 		last_one = last_node(*a);
 		last_one->next = box;
 		box->previous = last_one;
-		last_one->previous = box;
 	}
 }
 
