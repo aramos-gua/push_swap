@@ -6,7 +6,7 @@
 /*   By: aramos <alejandro.ramos.gua@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 14:10:30 by aramos            #+#    #+#             */
-/*   Updated: 2025/03/14 13:55:32 by Alejandro Ram    ###   ########.fr       */
+/*   Updated: 2025/03/14 17:12:32 by Alejandro Ram    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,5 +97,15 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 		argv = split_argv(argv[1], ' ', &argc, &flag);
 	validate_input(argv, &a, flag, argc);
+	if ((is_sorted(a)))
+	{
+		ft_printf("Sorted!");
+		return (0);
+	}
+	if (!(is_sorted(a)))
+	{
+		if (argc == 4)
+			sort_abc(&a);
+	}
 	return (0);
 }
