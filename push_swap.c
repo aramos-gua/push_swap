@@ -60,39 +60,27 @@ static void new_number(t_astk **a, int number)
 		last_one->next = box;
 		box->previous = last_one;
 	}
-	ft_printf("new number: %d\n", box->number);
 }
 
-static void	validate_input(char **argv, t_astk **a, int flag, int argc)
+static int	validate_input(char **argv, t_astk **a, int flag, int argc)
 {
 	int		i;
 	long	number;
 
 	i = 1;
-	flag = 1;//delete
-	argc = 2;//delete
 	while (argv[i])
 	{
 		if (isnt_number(argv[i]))
-		{
-			free_all(a, argv, flag, argc);
-			ft_printf("Error\n");
-		}
+			return (free_all(a, argv, flag, argc), 1);
 		number = atoln((const char *)argv[i]);
 		if (number > INT_MAX || number < INT_MIN)
-		{
-			ft_printf("Error\n");
-			return ;
-		}
+			return (free_all(a, argv, flag, argc), 1);
 		if (is_repeated(number, *a))
-		{
-			ft_printf("Error\n");
-			return ;
-		}
+			return (free_all(a, argv, flag, argc), 1);
 		new_number(a, number);
 		i++;
 	}
-	return ;
+	return (0) ;
 }
 
 int	main(int argc, char **argv)

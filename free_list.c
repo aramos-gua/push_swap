@@ -21,17 +21,15 @@ void	free_all(t_astk **a, char **argv, int flag, int argc)
 	if (flag == 1)
 	{
     	i -= 1;
-		ft_printf("argc: %d\n", argc);
 		while (i > 0)
-		{
 			free(argv[i--]);
-		}
 	}
-	i = 0;
+	i = 1;
 	while (*a)
 	{
 		temp = (*a)->next;
 		free (*a);
 		*a = temp;
 	}
+	ft_printf("Error\n");
 }
