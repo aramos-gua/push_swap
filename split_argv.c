@@ -6,7 +6,7 @@
 /*   By: aramos <alejandro.ramos.gua@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 14:10:18 by aramos            #+#    #+#             */
-/*   Updated: 2025/03/11 19:20:20 by Alejandro Ram    ###   ########.fr       */
+/*   Updated: 2025/03/14 13:52:02 by Alejandro Ram    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	word_count(char *str, char c)
 {
 	int	words;
-	
+
 	words = 0;
 	while (*str && *str == c)
 		str++;

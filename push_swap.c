@@ -6,7 +6,7 @@
 /*   By: aramos <alejandro.ramos.gua@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 14:10:30 by aramos            #+#    #+#             */
-/*   Updated: 2025/03/11 19:51:30 by Alejandro Ram    ###   ########.fr       */
+/*   Updated: 2025/03/14 13:55:32 by Alejandro Ram    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	isnt_number(char *str)
 	return (0);
 }
 
-static int	is_repeated(int	number, t_astk *a)
+static int	is_repeated(int number, t_astk *a)
 {
 	if (a == NULL)
 		return (0);
@@ -37,11 +37,11 @@ static int	is_repeated(int	number, t_astk *a)
 	return (0);
 }
 
-static void new_number(t_astk **a, int number)
+static void	new_number(t_astk **a, int number)
 {
 	t_astk	*box;
 	t_astk	*last_one;
-	
+
 	if (a == NULL)
 		return ;
 	box = malloc(1 * sizeof(t_astk));
@@ -80,7 +80,7 @@ static int	validate_input(char **argv, t_astk **a, int flag, int argc)
 		new_number(a, number);
 		i++;
 	}
-	return (0) ;
+	return (0);
 }
 
 int	main(int argc, char **argv)

@@ -17,10 +17,10 @@ void	free_all(t_astk **a, char **argv, int flag, int argc)
 	int		i;
 	t_astk	*temp;
 
-	i = argc; 
+	i = argc;
 	if (flag == 1)
 	{
-    	i -= 1;
+		i -= 1;
 		while (i > 0)
 			free(argv[i--]);
 	}
