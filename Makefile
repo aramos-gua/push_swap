@@ -15,7 +15,8 @@ LIBFT = $(LIBFTDIR)/libft.a
 SRC = ./push_swap.c\
 	  ./split_argv.c\
 	  ./atoln.c\
-	  ./push_swap_utils.c
+	  ./push_swap_utils.c\
+	  ./free_list.c
 
 OBJ = $(SRC:.c=.o)
 

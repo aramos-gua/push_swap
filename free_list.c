@@ -10,10 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	free_all(t_astk a, int flag)
+#include "push_swap.h"
+
+void	free_all(t_astk **a, char **argv, int flag, int argc)
 {
+	int		i;
+	t_astk	*temp;
+
+	i = argc; 
 	if (flag == 1)
 	{
-
+    	i -= 1;
+		ft_printf("argc: %d\n", argc);
+		while (i > 0)
+		{
+			free(argv[i--]);
+		}
+	}
+	i = 0;
+	while (*a)
+	{
+		temp = (*a)->next;
+		free (*a);
+		*a = temp;
 	}
 }

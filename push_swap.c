@@ -60,23 +60,35 @@ static void new_number(t_astk **a, int number)
 		last_one->next = box;
 		box->previous = last_one;
 	}
+	ft_printf("new number: %d\n", box->number);
 }
 
-static void	validate_input(char **argv, t_astk **a, int flag)
+static void	validate_input(char **argv, t_astk **a, int flag, int argc)
 {
 	int		i;
 	long	number;
 
 	i = 1;
+	flag = 1;//delete
+	argc = 2;//delete
 	while (argv[i])
 	{
 		if (isnt_number(argv[i]))
-			(a, argv, flag);
+		{
+			free_all(a, argv, flag, argc);
+			ft_printf("Error\n");
+		}
 		number = atoln((const char *)argv[i]);
 		if (number > INT_MAX || number < INT_MIN)
+		{
 			ft_printf("Error\n");
+			return ;
+		}
 		if (is_repeated(number, *a))
+		{
 			ft_printf("Error\n");
+			return ;
+		}
 		new_number(a, number);
 		i++;
 	}
@@ -87,13 +99,15 @@ int	main(int argc, char **argv)
 {
 	t_astk	*a;
 	t_astk	*b;
+	int		flag;
 
 	a = NULL;
 	b = NULL;
+	flag = 0;
 	if (argc < 2 || (argc == 2 && argv[1][0] == '\0'))
-		ft_printf("Error\n");
-	else if (argc == 2)
-		argv = split_argv(argv[1], ' ');
-	validate_input(argv, &a, argc == 2);
+		return (ft_printf("Error\n"), 1);
+	if (argc == 2)
+		argv = split_argv(argv[1], ' ', &argc, &flag);
+	validate_input(argv, &a, flag, argc);
 	return (0);
 }

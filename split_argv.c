@@ -52,7 +52,7 @@ static char	*fill_words(char *str, char c)
 	return (word);
 }
 
-char	**split_argv(char *str, char c)
+char	**split_argv(char *str, char c, int *argc, int *flag)
 {
 	int		i;
 	int		words;
@@ -75,6 +75,8 @@ char	**split_argv(char *str, char c)
 		}
 		array[i++] = fill_words(str, c);
 	}
+	*flag = 1;
+	*argc = i;
 	array[i] = NULL;
 	return (array);
 }

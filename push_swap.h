@@ -21,6 +21,7 @@ typedef struct s_astk
   struct s_astk *next;
 } t_astk;
 
-char	  **split_argv(char *str, char c);
+char	  **split_argv(char *str, char c, int *argc, int *flag);
 long    atoln(const char *str);
 t_astk	*last_node(t_astk *lst);
+void	free_all(t_astk **a, char **argv, int flag, int argc);
