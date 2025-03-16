@@ -41,5 +41,7 @@ t_astk	*get_biggest(t_astk *a)
 		}
 		a = a->next;
 	}
+	printf("current (*a): %d\n", (a)->number);
+	printf("max_node value: %d\n", max_node->number);
 	return (max_node);
 }
