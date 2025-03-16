@@ -27,3 +27,18 @@ void	ra(t_astk **a, int argc)
 	temp->previous = last_one;
 	temp->next = NULL;
 }
+
+void	rra(t_astk **a, int argc)
+{
+	t_astk	*last_one;
+	t_astk	*temp;
+
+	if (a == NULL || *a == NULL || argc == 2)
+		return ;
+	last_one = last_node(*a);
+	temp = *a;
+	(*a)->next = ((*a)->previous)->previous;
+	(*a)->previous = NULL;
+	((*a)-> next)->previous = temp;
+	(((*a)->next)->next)->next = NULL;
+}

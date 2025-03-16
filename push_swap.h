@@ -31,3 +31,4 @@ void	sort_abc(t_astk **a, int argc);
 t_astk	*get_biggest(t_astk *a);
 void	ra(t_astk **a, int argc);
 void	sa(t_astk **a, int argc);
+void	rra(t_astk **a, int argc);

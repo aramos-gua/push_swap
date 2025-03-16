@@ -17,12 +17,15 @@ void	sa(t_astk **a, int argc)
 	t_astk	*temp;
 
 	if (!a || !(*a) || argc < 3)
+		return ;
 	temp = *a;
 	*a = (*a)->next;
 	(*a)->previous = NULL;
 	temp->next = (*a)->next;
 	if (temp->next)
+	{
 		(temp->next)->previous = temp;
+	}
 	(*a)->next = temp;
 	temp->previous = *a;
 }
