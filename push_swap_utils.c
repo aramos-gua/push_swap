@@ -22,3 +22,24 @@ t_astk	*last_node(t_astk *lst)
 	}
 	return (lst);
 }
+
+t_astk	*get_biggest(t_astk *a)
+{
+	int		biggest;
+	t_astk	*max_node;
+
+	if (a == NULL)
+		return (NULL);
+	biggest = a->number;
+	max_node = a;
+	while (a)
+	{
+		if (a->number > biggest)
+		{
+			biggest = a->number;
+			max_node = a;
+		}
+		a = a->next;
+	}
+	return (max_node);
+}
