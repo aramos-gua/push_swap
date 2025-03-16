@@ -18,7 +18,8 @@ SRC = ./push_swap.c\
 	  ./push_swap_utils.c\
 	  ./free_list.c\
 	  ./handle_stack.c\
-	  ./rotate_commands.c
+	  ./rotate_commands.c\
+	  ./switch_commands.c
 
 OBJ = $(SRC:.c=.o)
 

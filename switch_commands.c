@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_commands.c                                  :+:      :+:    :+:   */
+/*   switch_commands.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aramos <alejandro.ramos.gua@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/16 10:38:05 by aramos            #+#    #+#             */
-/*   Updated: 2025/03/16 12:58:10 by aramos           ###   ########.fr       */
+/*   Created: 2025/03/16 13:03:04 by aramos            #+#    #+#             */
+/*   Updated: 2025/03/16 13:04:37 by aramos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(t_astk **a, int argc)
+void	sa(t_astk **a, int argc)
 {
-	t_astk	*last_one;
 	t_astk	*temp;
 
-	if (a == NULL || *a == NULL || argc == 2)
-		return ;
-	last_one = last_node(*a);
+	if (!a || !(*a) || argc < 3)
 	temp = *a;
 	*a = (*a)->next;
 	(*a)->previous = NULL;
-	last_one->next = temp;
-	temp->previous = last_one;
-	temp->next = NULL;
+	temp->next = (*a)->next;
+	if (temp->next)
+		(temp->next)->previous = temp;
+	(*a)->next = temp;
+	temp->previous = *a;
 }

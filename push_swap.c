@@ -6,7 +6,7 @@
 /*   By: aramos <alejandro.ramos.gua@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 14:10:30 by aramos            #+#    #+#             */
-/*   Updated: 2025/03/16 10:54:15 by aramos           ###   ########.fr       */
+/*   Updated: 2025/03/16 12:58:51 by aramos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,10 +101,7 @@ int	main(int argc, char **argv)
 	if (validate_input(argv, &a, flag, argc) == 1)
 		return (1);
 	if ((is_sorted(a)))
-	{
 		ft_printf("Sorted!");
-		return (0);
-	}
 	if (!(is_sorted(a)))
 	{
 		ft_printf("Not sorted\n");
