@@ -28,15 +28,36 @@ int	is_sorted(t_astk *a)
 void	sort_abc(t_astk **a, int argc)
 {
 	t_astk	*max_node;
+	t_astk	*tmp;
 
 	if (!(*a))
 		return ;
 	ft_printf("starting sort_abc\n");
 	max_node = get_biggest(*a);
 	if (*a == max_node)
+	{
+		ft_printf("starting ra\n");
 		ra(a, argc);
-	else if ((*a)->next == max_node)
+	}
+	if ((*a)->next == max_node)
+	{
+		ft_printf("starting rra\n");
 		rra(a, argc);
+	}
+	ft_printf("number[1]: %d\n", (*a)->number);
 	if ((*a)->number > ((*a)->next)->number)
 		sa(a, argc);
+//Delete after
+	tmp = *a;
+	ft_printf("number[1]: %d\n", tmp->number);
+	if (tmp->next)
+		tmp = tmp->next;
+	else
+		return ;
+	ft_printf("number[2]: %d\n", tmp->number);
+	if (tmp->next)
+		tmp = tmp->next;
+	else
+		return ;
+	ft_printf("number[3]: %d\n", tmp->number);
 }

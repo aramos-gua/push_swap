@@ -31,14 +31,17 @@ void	ra(t_astk **a, int argc)
 void	rra(t_astk **a, int argc)
 {
 	t_astk	*last_one;
-	t_astk	*temp;
+	t_astk	*second_last;
 
-	if (a == NULL || *a == NULL || argc == 2)
+	if (a == NULL || *a == NULL || (*a)->next == NULL || argc == 2)
 		return ;
+	ft_printf("number[1] inside rra: %d\n", (*a)->number);
 	last_one = last_node(*a);
-	temp = *a;
-	(*a)->next = ((*a)->previous)->previous;
-	(*a)->previous = NULL;
-	((*a)-> next)->previous = temp;
-	(((*a)->next)->next)->next = NULL;
+	second_last = last_one->previous;
+	if (second_last)
+		second_last->next = NULL;
+	last_one->next = *a;
+	last_one->previous = NULL;
+	(*a)->previous = last_one;
+	*a = last_one;
 }
