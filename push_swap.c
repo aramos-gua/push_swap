@@ -100,14 +100,14 @@ int	main(int argc, char **argv)
 		argv = split_argv(argv[1], ' ', &argc, &flag);
 	if (validate_input(argv, &a, flag, argc) == 1)
 		return (1);
-	if ((is_sorted(a)))
-		ft_printf("Sorted!\n");
+	//if ((is_sorted(a)))
+	//	ft_printf("Sorted!\n");
 	if (!(is_sorted(a)))
 	{
-		ft_printf("Not sorted\n");
+	//	ft_printf("Not sorted\n");
 		if (argc == 4)
 			sort_abc(&a, argc);
 	}
-	ft_printf("%p\n", b);
-	return (0);
+	b = a;
+	return (b->number);
 }

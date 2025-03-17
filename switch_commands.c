@@ -28,4 +28,5 @@ void	sa(t_astk **a, int argc)
 	}
 	(*a)->next = temp;
 	temp->previous = *a;
+	ft_printf("sa\n");
 }

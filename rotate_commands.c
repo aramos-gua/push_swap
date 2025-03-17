@@ -26,6 +26,7 @@ void	ra(t_astk **a, int argc)
 	last_one->next = temp;
 	temp->previous = last_one;
 	temp->next = NULL;
+	ft_printf("ra\n");
 }
 
 void	rra(t_astk **a, int argc)
@@ -43,4 +44,5 @@ void	rra(t_astk **a, int argc)
 	last_one->previous = NULL;
 	(*a)->previous = last_one;
 	*a = last_one;
+	ft_printf("rra\n");
 }

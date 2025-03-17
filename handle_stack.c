@@ -35,16 +35,16 @@ void	sort_abc(t_astk **a, int argc)
 
 	if (!(*a))
 		return ;
-	ft_printf("starting sort_abc\n");
+	//ft_printf("starting sort_abc\n");
 	max_node = get_biggest(*a);
 	if (*a == max_node)
 	{
-		ft_printf("starting ra\n");
+		//ft_printf("starting ra\n");
 		ra(a, argc);
 	}
 	else if ((*a)->next == max_node)
 	{
-		ft_printf("starting rra\n");
+		//ft_printf("starting rra\n");
 		rra(a, argc);
 	}
 	if ((*a)->number > ((*a)->next)->number)
