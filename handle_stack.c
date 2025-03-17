@@ -14,13 +14,16 @@
 
 int	is_sorted(t_astk *a)
 {
+	t_astk	*temp;
+
+	temp = a;
 	if (a == NULL)
 		return (1);
-	while (a->next != NULL)
+	while (temp && temp->next)
 	{
-		if (a->number > (a-> next)->number)
+		if (temp->number > (temp-> next)->number)
 			return (0);
-		*a = *a->next;
+		temp = temp->next;
 	}
 	return (1);
 }
@@ -28,7 +31,7 @@ int	is_sorted(t_astk *a)
 void	sort_abc(t_astk **a, int argc)
 {
 	t_astk	*max_node;
-	t_astk	*tmp;
+	t_astk	*temp;
 
 	if (!(*a))
 		return ;
@@ -39,25 +42,17 @@ void	sort_abc(t_astk **a, int argc)
 		ft_printf("starting ra\n");
 		ra(a, argc);
 	}
-	if ((*a)->next == max_node)
+	else if ((*a)->next == max_node)
 	{
 		ft_printf("starting rra\n");
 		rra(a, argc);
 	}
-	ft_printf("number[1]: %d\n", (*a)->number);
 	if ((*a)->number > ((*a)->next)->number)
 		sa(a, argc);
-//Delete after
-	tmp = *a;
-	ft_printf("number[1]: %d\n", tmp->number);
-	if (tmp->next)
-		tmp = tmp->next;
-	else
-		return ;
-	ft_printf("number[2]: %d\n", tmp->number);
-	if (tmp->next)
-		tmp = tmp->next;
-	else
-		return ;
-	ft_printf("number[3]: %d\n", tmp->number);
+	temp = *a;
+	while (temp)
+	{
+		ft_printf(" %d ->", temp->number);
+		temp = temp->next;
+	}
 }

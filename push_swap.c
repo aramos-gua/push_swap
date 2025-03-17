@@ -101,7 +101,7 @@ int	main(int argc, char **argv)
 	if (validate_input(argv, &a, flag, argc) == 1)
 		return (1);
 	if ((is_sorted(a)))
-		ft_printf("Sorted!");
+		ft_printf("Sorted!\n");
 	if (!(is_sorted(a)))
 	{
 		ft_printf("Not sorted\n");

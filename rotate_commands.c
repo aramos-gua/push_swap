@@ -35,7 +35,6 @@ void	rra(t_astk **a, int argc)
 
 	if (a == NULL || *a == NULL || (*a)->next == NULL || argc == 2)
 		return ;
-	ft_printf("number[1] inside rra: %d\n", (*a)->number);
 	last_one = last_node(*a);
 	second_last = last_one->previous;
 	if (second_last)
