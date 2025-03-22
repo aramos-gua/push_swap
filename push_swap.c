@@ -6,7 +6,7 @@
 /*   By: aramos <alejandro.ramos.gua@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 14:10:30 by aramos            #+#    #+#             */
-/*   Updated: 2025/03/16 12:58:51 by aramos           ###   ########.fr       */
+/*   Updated: 2025/03/22 20:49:33 by aramos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,26 +37,26 @@ static int	is_repeated(int number, t_astk *a)
 	return (0);
 }
 
-static void	new_number(t_astk **a, int number)
+void	new_number(t_astk **stack, int number)
 {
 	t_astk	*box;
 	t_astk	*last_one;
 
-	if (a == NULL)
+	if (stack == NULL)
 		return ;
 	box = malloc(1 * sizeof(t_astk));
 	if (!box)
 		return ;
 	box->next = NULL;
 	box->number = number;
-	if (*a == NULL)
+	if (*stack == NULL)
 	{
-		*a = box;
+		*stack = box;
 		box->previous = NULL;
 	}
 	else
 	{
-		last_one = last_node(*a);
+		last_one = last_node(*stack);
 		last_one->next = box;
 		box->previous = last_one;
 	}
@@ -110,6 +110,5 @@ int	main(int argc, char **argv)
 		if (argc == 6)
 			sort_five(&a, &b, argc);
 	}
-	b = a;
-	return (b->number);
+	return (0);
 }

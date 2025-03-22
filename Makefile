@@ -19,7 +19,8 @@ SRC = ./push_swap.c\
 	  ./free_list.c\
 	  ./handle_stack.c\
 	  ./rotate_commands.c\
-	  ./switch_commands.c
+	  ./switch_commands.c\
+	  ./push_commands.c
 
 OBJ = $(SRC:.c=.o)
 
