@@ -18,6 +18,7 @@
 typedef struct s_astk
 {
 	int				number;
+	int				moves;
 	struct s_astk	*previous;
 	struct s_astk	*next;
 }	t_astk;

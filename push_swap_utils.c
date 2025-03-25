@@ -46,5 +46,5 @@ t_astk	*get_biggest(t_astk *a)
 
 t_astk  *find_least(t_astk **a)
 {
-
+  
 }
