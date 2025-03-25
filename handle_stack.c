@@ -42,12 +42,3 @@ void	sort_abc(t_astk **a, int argc)
 	if ((*a)->number > ((*a)->next)->number)
 		sa(a, argc);
 }
-
-void	sort_five(t_astk **a, t_astk** b, int argc)
-{
-	ft_printf("Starting sort_five\n");
-	pb(a, b);
-	pb(a, b);
-	argc -= 2;
-	sort_abc(a, argc);
-}
