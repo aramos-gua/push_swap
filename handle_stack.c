@@ -42,3 +42,13 @@ void	sort_abc(t_astk **a, int argc)
 	if ((*a)->number > ((*a)->next)->number)
 		sa(a, argc);
 }
+
+void  start_sorting(t_astk **a, t_astk**b, int argc)
+{
+  int a_len;
+
+  a_len = argc - 1;
+  pb(a, b);
+  pb(a, b);
+  find_least(a);
+}

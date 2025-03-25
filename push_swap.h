@@ -35,3 +35,4 @@ void	sa(t_astk **a, int argc);
 void	rra(t_astk **a, int argc);
 void	sort_five(t_astk **a, t_astk** b, int argc);
 void	pb(t_astk **a, t_astk **b);
+void	start_sorting(t_astk **a, int argc);

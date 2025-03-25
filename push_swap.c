@@ -107,7 +107,7 @@ int	main(int argc, char **argv)
 		ft_printf("Not sorted\n");
 		if (argc == 4)
 			sort_abc(&a, argc);
-    start_sorting(&a, argc);
+    start_sorting(&a, &b, argc);
 	}
 	return (0);
 }
