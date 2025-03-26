@@ -90,7 +90,7 @@ int	main(int argc, char **argv)
 	t_stack	*a;
 	//t_stack	*b;
 	int		flag;
-	int		median;
+	//int		median;
 
 	a = NULL;
 	//b = NULL;
@@ -108,7 +108,8 @@ int	main(int argc, char **argv)
 		ft_printf("Not sorted\n");
 		if (argc == 4)
 			sort_abc(&a, argc);
-		median = get_median(a, argc - 1);
+		//median = get_median(a, argc - 1);
+		sort_algo(a, b, argc - 1);
 	}
 	return (0);
 }

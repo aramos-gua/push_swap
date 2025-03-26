@@ -43,3 +43,32 @@ void	sort_abc(t_stack **a, int argc)
 		sa(a, argc);
 }
 
+void	ident_a(t_stack *a, t_stack *b)
+{
+	position(a);
+	position(b);
+	set_target(a, b);
+	check_price(a, b);
+	set_price(a);
+}
+
+void	sort_algo(t_stack **a, t_stack **b, int len)
+{
+	if (len-- > 3 && !(is_sorted(*a)))
+		pb(a, b);
+	if (len-- > 3 && !(is_sorted(*a)))
+		pb(a, b);
+	while (len-- > 3 && (is_sorted(*a)))
+	{
+		ident_a(*a, *b);
+		atob(*a, *b);
+	}
+	sort_abc(a, len + 1);
+	while (*b)
+	{
+		ident_b(*a, *b);
+		btoa(*a, *b);
+	}
+	index(*a);
+
+}
