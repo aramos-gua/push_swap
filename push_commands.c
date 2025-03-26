@@ -28,3 +28,20 @@ void	pb(t_stack **a, t_stack **b)
 	*b = temp;
 	ft_printf("pa\n");
 }
+
+void	pa(t_stack **a, t_stack **b)
+{
+	t_stack	*temp;
+
+	if (*b == NULL)
+		return ;
+	temp = *b;
+	*b = (*b)->next;
+	if (*b)
+		(*b)->previous = NULL;
+	temp->next = *a;
+	if (*a)
+		(*a)->previous = temp;
+	*a = temp;
+	ft_printf("pb\n");
+}
