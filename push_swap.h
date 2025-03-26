@@ -14,11 +14,15 @@
 #include <limits.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdbool>
 
 typedef struct s_stack
 {
 	int				number;
-	int				moves;
+	int				position;
+	bool			more_median;
+	bool			fastest;
+	struct s_stack	*target;
 	struct s_stack	*previous;
 	struct s_stack	*next;
 }	t_stack;
