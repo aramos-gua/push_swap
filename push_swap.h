@@ -6,7 +6,7 @@
 /*   By: aramos <alejandro.ramos.gua@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 14:10:25 by aramos            #+#    #+#             */
-/*   Updated: 2025/03/22 21:04:46 by aramos           ###   ########.fr       */
+/*   Updated: 2025/03/26 12:39:40 by aramos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,4 @@ void	sa(t_stack **a, int argc);
 void	rra(t_stack **a, int argc);
 void	sort_five(t_stack **a, t_stack** b, int argc);
 void	pb(t_stack **a, t_stack **b);
-void	start_sorting(t_stack **a, int argc);
+int		get_median(t_stack *a, int size);

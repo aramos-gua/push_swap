@@ -6,7 +6,7 @@
 /*   By: Alejandro Ramos <alejandro.ramos.gua@gmai  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 18:54:34 by Alejandro Ram     #+#    #+#             */
-/*   Updated: 2025/03/11 19:38:01 by Alejandro Ram    ###   ########.fr       */
+/*   Updated: 2025/03/26 12:39:30 by aramos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,4 @@ t_stack	*get_biggest(t_stack *a)
 		a = a->next;
 	}
 	return (max_node);
-}
-
-t_stack  *find_least(t_stack **a)
-{
-  
 }

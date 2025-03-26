@@ -6,7 +6,7 @@
 /*   By: Alejandro Ramos <alejandro.ramos.gua@gmai  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 14:10:15 by Alejandro Ram     #+#    #+#             */
-/*   Updated: 2025/03/22 21:15:00 by aramos           ###   ########.fr       */
+/*   Updated: 2025/03/26 12:39:53 by aramos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,3 @@ void	sort_abc(t_stack **a, int argc)
 		sa(a, argc);
 }
 
-void  start_sorting(t_stack **a, t_stack**b, int argc)
-{
-  int a_len;
-
-  a_len = argc - 1;
-  pb(a, b);
-  pb(a, b);
-  find_least(a);
-}

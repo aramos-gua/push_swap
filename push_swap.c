@@ -6,7 +6,7 @@
 /*   By: aramos <alejandro.ramos.gua@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 14:10:30 by aramos            #+#    #+#             */
-/*   Updated: 2025/03/22 20:49:33 by aramos           ###   ########.fr       */
+/*   Updated: 2025/03/26 12:57:13 by aramos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,11 +88,12 @@ static int	validate_input(char **argv, t_stack **a, int flag, int argc)
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
-	t_stack	*b;
+	//t_stack	*b;
 	int		flag;
+	int		median;
 
 	a = NULL;
-	b = NULL;
+	//b = NULL;
 	flag = 0;
 	if (argc < 2 || (argc == 2 && !(argv[1][0])))
 		return (ft_printf("Error\n"), 1);
@@ -107,7 +108,7 @@ int	main(int argc, char **argv)
 		ft_printf("Not sorted\n");
 		if (argc == 4)
 			sort_abc(&a, argc);
-    start_sorting(&a, &b, argc);
+		median = get_median(a, argc - 1);
 	}
 	return (0);
 }
