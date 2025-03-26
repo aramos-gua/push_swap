@@ -12,10 +12,10 @@
 
 #include "push_swap.h"
 
-void	free_all(t_astk **a, char **argv, int flag, int argc)
+void	free_all(t_stack **a, char **argv, int flag, int argc)
 {
 	int		i;
-	t_astk	*temp;
+	t_stack	*temp;
 
 	i = argc;
 	if (flag == 1)

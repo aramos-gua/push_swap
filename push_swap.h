@@ -15,25 +15,25 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-typedef struct s_astk
+typedef struct s_stack
 {
 	int				number;
 	int				moves;
-	struct s_astk	*previous;
-	struct s_astk	*next;
-}	t_astk;
+	struct s_stack	*previous;
+	struct s_stack	*next;
+}	t_stack;
 
 char	**split_argv(char *str, char c, int *argc, int *flag);
 long	atoln(const char *str);
-t_astk	*last_node(t_astk *lst);
-void	free_all(t_astk **a, char **argv, int flag, int argc);
-void	new_number(t_astk **stack, int number);
-int		is_sorted(t_astk *a);
-void	sort_abc(t_astk **a, int argc);
-t_astk	*get_biggest(t_astk *a);
-void	ra(t_astk **a, int argc);
-void	sa(t_astk **a, int argc);
-void	rra(t_astk **a, int argc);
-void	sort_five(t_astk **a, t_astk** b, int argc);
-void	pb(t_astk **a, t_astk **b);
-void	start_sorting(t_astk **a, int argc);
+t_stack	*last_node(t_stack *lst);
+void	free_all(t_stack **a, char **argv, int flag, int argc);
+void	new_number(t_stack **stack, int number);
+int		is_sorted(t_stack *a);
+void	sort_abc(t_stack **a, int argc);
+t_stack	*get_biggest(t_stack *a);
+void	ra(t_stack **a, int argc);
+void	sa(t_stack **a, int argc);
+void	rra(t_stack **a, int argc);
+void	sort_five(t_stack **a, t_stack** b, int argc);
+void	pb(t_stack **a, t_stack **b);
+void	start_sorting(t_stack **a, int argc);

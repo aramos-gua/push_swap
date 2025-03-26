@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-t_astk	*last_node(t_astk *lst)
+t_stack	*last_node(t_stack *lst)
 {
 	if (!lst)
 		return (NULL);
@@ -23,10 +23,10 @@ t_astk	*last_node(t_astk *lst)
 	return (lst);
 }
 
-t_astk	*get_biggest(t_astk *a)
+t_stack	*get_biggest(t_stack *a)
 {
 	int		biggest;
-	t_astk	*max_node;
+	t_stack	*max_node;
 
 	if (a == NULL)
 		return (NULL);
@@ -44,7 +44,7 @@ t_astk	*get_biggest(t_astk *a)
 	return (max_node);
 }
 
-t_astk  *find_least(t_astk **a)
+t_stack  *find_least(t_stack **a)
 {
   
 }

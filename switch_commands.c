@@ -12,9 +12,9 @@
 
 #include "push_swap.h"
 
-void	sa(t_astk **a, int argc)
+void	sa(t_stack **a, int argc)
 {
-	t_astk	*temp;
+	t_stack	*temp;
 
 	if (!a || !(*a) || argc < 3)
 		return ;

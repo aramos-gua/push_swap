@@ -12,9 +12,9 @@
 
 #include "push_swap.h"
 
-int	is_sorted(t_astk *a)
+int	is_sorted(t_stack *a)
 {
-	t_astk	*temp;
+	t_stack	*temp;
 
 	temp = a;
 	if (a == NULL)
@@ -28,9 +28,9 @@ int	is_sorted(t_astk *a)
 	return (1);
 }
 
-void	sort_abc(t_astk **a, int argc)
+void	sort_abc(t_stack **a, int argc)
 {
-	t_astk	*max_node;
+	t_stack	*max_node;
 
 	if (!(*a) || argc != 4)
 		return ;
@@ -43,7 +43,7 @@ void	sort_abc(t_astk **a, int argc)
 		sa(a, argc);
 }
 
-void  start_sorting(t_astk **a, t_astk**b, int argc)
+void  start_sorting(t_stack **a, t_stack**b, int argc)
 {
   int a_len;
 

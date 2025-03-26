@@ -12,9 +12,9 @@
 
 #include "push_swap.h"
 
-void	pb(t_astk **a, t_astk **b)
+void	pb(t_stack **a, t_stack **b)
 {
-	t_astk	*temp;
+	t_stack	*temp;
 
 	if (*a == NULL)
 		return ;

@@ -12,10 +12,10 @@
 
 #include "push_swap.h"
 
-void	ra(t_astk **a, int argc)
+void	ra(t_stack **a, int argc)
 {
-	t_astk	*last_one;
-	t_astk	*temp;
+	t_stack	*last_one;
+	t_stack	*temp;
 
 	if (a == NULL || *a == NULL || argc == 2)
 		return ;
@@ -29,10 +29,10 @@ void	ra(t_astk **a, int argc)
 	ft_printf("ra\n");
 }
 
-void	rra(t_astk **a, int argc)
+void	rra(t_stack **a, int argc)
 {
-	t_astk	*last_one;
-	t_astk	*second_last;
+	t_stack	*last_one;
+	t_stack	*second_last;
 
 	if (a == NULL || *a == NULL || (*a)->next == NULL || argc == 2)
 		return ;

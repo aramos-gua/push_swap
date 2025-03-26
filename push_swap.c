@@ -24,7 +24,7 @@ static int	isnt_number(char *str)
 	return (0);
 }
 
-static int	is_repeated(int number, t_astk *a)
+static int	is_repeated(int number, t_stack *a)
 {
 	if (a == NULL)
 		return (0);
@@ -37,14 +37,14 @@ static int	is_repeated(int number, t_astk *a)
 	return (0);
 }
 
-void	new_number(t_astk **stack, int number)
+void	new_number(t_stack **stack, int number)
 {
-	t_astk	*box;
-	t_astk	*last_one;
+	t_stack	*box;
+	t_stack	*last_one;
 
 	if (stack == NULL)
 		return ;
-	box = malloc(1 * sizeof(t_astk));
+	box = malloc(1 * sizeof(t_stack));
 	if (!box)
 		return ;
 	box->next = NULL;
@@ -62,7 +62,7 @@ void	new_number(t_astk **stack, int number)
 	}
 }
 
-static int	validate_input(char **argv, t_astk **a, int flag, int argc)
+static int	validate_input(char **argv, t_stack **a, int flag, int argc)
 {
 	int		i;
 	long	number;
@@ -87,8 +87,8 @@ static int	validate_input(char **argv, t_astk **a, int flag, int argc)
 
 int	main(int argc, char **argv)
 {
-	t_astk	*a;
-	t_astk	*b;
+	t_stack	*a;
+	t_stack	*b;
 	int		flag;
 
 	a = NULL;
