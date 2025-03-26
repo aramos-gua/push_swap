@@ -30,3 +30,22 @@ void	sa(t_stack **a, int argc)
 	temp->previous = *a;
 	ft_printf("sa\n");
 }
+
+void	sb(t_stack **b, int argc)
+{
+	t_stack	*temp;
+
+	if (!b || !(*b) || argc < 3)
+		return ;
+	temp = *b;
+	*b = (*b)->next;
+	(*b)->previous = NULL;
+	temp->next = (*b)->next;
+	if (temp->next)
+	{
+		(temp->next)->previous = temp;
+	}
+	(*b)->next = temp;
+	temp->previous = *b;
+	ft_printf("sb\n");
+}
