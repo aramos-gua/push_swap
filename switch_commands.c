@@ -49,3 +49,10 @@ void	sb(t_stack **b, int argc)
 	temp->previous = *b;
 	ft_printf("sb\n");
 }
+
+void	ss(t_stack **a, t_stack **b, argc)
+{
+	sa(a, argc);
+	sb(b, argc);
+	ft_printf("ss\n");
+}
