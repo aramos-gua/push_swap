@@ -109,7 +109,7 @@ int	main(int argc, char **argv)
 		if (argc == 4)
 			sort_abc(&a, argc);
 		//median = get_median(a, argc - 1);
-		sort_algo(a, b, argc - 1);
+		sort_algo(a, b, argc);
 	}
 	return (0);
 }
