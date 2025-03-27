@@ -6,7 +6,7 @@
 /*   By: aramos <alejandro.ramos.gua@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 14:10:25 by aramos            #+#    #+#             */
-/*   Updated: 2025/03/26 12:39:40 by aramos           ###   ########.fr       */
+/*   Updated: 2025/03/27 15:45:06 by Alejandro Ram    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 #include <limits.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <stdbool>
+#include <stdbool.h>
 
 typedef struct s_stack
 {
 	int				number;
 	int				position;
-	bool			more_median;
+	bool			above_median;
 	bool			fastest;
 	struct s_stack	*target;
 	struct s_stack	*previous;
@@ -38,6 +38,8 @@ t_stack	*get_biggest(t_stack *a);
 void	ra(t_stack **a, int argc);
 void	sa(t_stack **a, int argc);
 void	rra(t_stack **a, int argc);
-void	sort_five(t_stack **a, t_stack** b, int argc);
+void	sort_algo(t_stack **a, t_stack **b, int argc);
 void	pb(t_stack **a, t_stack **b);
 int		get_median(t_stack *a, int size);
+void	position(t_stack *a, int len);
+void	set_target(t_stack *a, t_stack *b);

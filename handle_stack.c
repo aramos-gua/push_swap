@@ -6,7 +6,7 @@
 /*   By: Alejandro Ramos <alejandro.ramos.gua@gmai  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 14:10:15 by Alejandro Ram     #+#    #+#             */
-/*   Updated: 2025/03/26 12:39:53 by aramos           ###   ########.fr       */
+/*   Updated: 2025/03/27 15:42:44 by Alejandro Ram    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ void	sort_abc(t_stack **a, int argc)
 
 void	ident_a(t_stack *a, t_stack *b, int argc)
 {
-	position(a);
-	position(b);
+	position(a, argc);
+	position(b, argc);
 	set_target(a, b);
-	check_price(a, b);
-	set_price(a);
+	//check_price(a, b);
+	//set_price(a);
 }
 
 void	sort_algo(t_stack **a, t_stack **b, int argc)
@@ -64,15 +64,14 @@ void	sort_algo(t_stack **a, t_stack **b, int argc)
 	while (len > 3 && (is_sorted(*a)))
 	{
 		ident_a(*a, *b, len);
-		atob(*a, *b);
+		//atob(*a, *b);
 		len--;
 	}
 	sort_abc(a, len + 1);
-	while (*b)
-	{
-		ident_b(*a, *b);
-		btoa(*a, *b);
-	}
-	index(*a);
-
+	//while (*b)
+	//{
+	//	ident_b(*a, *b);
+	//	btoa(*a, *b);
+	//}
+	//index(*a);
 }

@@ -21,7 +21,8 @@ SRC = ./push_swap.c\
 	  ./rotate_commands.c\
 	  ./switch_commands.c\
 	  ./push_commands.c\
-	  ./get_median.c
+	  ./get_median.c\
+	  ./ident_a.c
 
 OBJ = $(SRC:.c=.o)
 

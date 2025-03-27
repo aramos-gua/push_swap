@@ -6,7 +6,7 @@
 /*   By: aramos <alejandro.ramos.gua@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 13:03:04 by aramos            #+#    #+#             */
-/*   Updated: 2025/03/16 13:04:37 by aramos           ###   ########.fr       */
+/*   Updated: 2025/03/27 15:43:15 by Alejandro Ram    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	sb(t_stack **b, int argc)
 	ft_printf("sb\n");
 }
 
-void	ss(t_stack **a, t_stack **b, argc)
+void	ss(t_stack **a, t_stack **b, int argc)
 {
 	sa(a, argc);
 	sb(b, argc);
