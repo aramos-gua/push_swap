@@ -23,7 +23,7 @@ t_stack	*last_node(t_stack *lst)
 	return (lst);
 }
 
-t_stack	*get_biggest(t_stack *a)
+t_stack	*get_biggest(t_stack *a, int n)
 {
 	int		biggest;
 	t_stack	*max_node;
@@ -32,7 +32,7 @@ t_stack	*get_biggest(t_stack *a)
 		return (NULL);
 	biggest = a->number;
 	max_node = a;
-	while (a)
+	while (n)
 	{
 		if (a->number > biggest)
 		{
@@ -40,6 +40,7 @@ t_stack	*get_biggest(t_stack *a)
 			max_node = a;
 		}
 		a = a->next;
+		n--;
 	}
 	return (max_node);
 }

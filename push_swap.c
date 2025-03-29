@@ -75,6 +75,7 @@ static int	validate_input(char **argv, t_stack **a, int flag, int argc)
 		number = atoln((const char *)argv[i]);
 		if (number > INT_MAX || number < INT_MIN)
 			return (free_all(a, argv, flag, argc), 1);
+		number = (int)number;
 		if (is_repeated(number, *a))
 			return (free_all(a, argv, flag, argc), 1);
 		if (argc == 2)
@@ -105,11 +106,31 @@ int	main(int argc, char **argv)
 		ft_printf("Sorted!\n");
 	if (!(is_sorted(a)))
 	{
+		t_stack *temp;
+
+		temp = a;
 		ft_printf("Not sorted\n");
+		while (temp)
+		{
+			ft_printf(" %d -> ", (*temp).number);
+			temp = (*temp).next;
+		}
+		ft_printf("\n");
 		if (argc == 4)
 			sort_abc(&a, argc);
 		//median = get_median(a, argc - 1);
-		sort_algo(&a, &b, argc);
+		if (argc == 5)
+			sort_abcd(&a, argc);
+		//sort_algo(&a, &b, argc);
 	}
+		t_stack *temp;
+
+		temp = a;
+		while (temp)
+		{
+			ft_printf(" %d -> ", (*temp).number);
+			temp = (*temp).next;
+		}
+		ft_printf("\n");
 	return (0);
 }

@@ -34,7 +34,9 @@ void	sort_abc(t_stack **a, int argc)
 
 	if (!(*a) || argc != 4)
 		return ;
-	max_node = get_biggest(*a);
+	ft_printf("will get biggest \n");
+	max_node = get_biggest(*a, argc - 1);
+	ft_printf("biggest:  %d\n", max_node->number);
 	if (*a == max_node)
 		ra(a, argc);
 	else if ((*a)->next == max_node)
@@ -75,4 +77,35 @@ void	sort_algo(t_stack **a, t_stack **b, int argc)
 	//	btoa(*a, *b);
 	//}
 	//index(*a);
+}
+
+void	sort_abcd(t_stack **a, int argc)
+{
+	int	e;
+	int	b;
+	int	c;
+	int	d;
+
+	e = (*a)->number;
+	b = ((*a)->next)->number;
+	c = (((*a)->next)->next)->number;
+	d = ((((*a)->next)->next)->next)->number;
+	if (argc == 5)
+	{
+	//	if (!(is_sorted(*a) && e == 2 && b == 3 && c == 1 && d == 4))
+	//		rra(a, argc), rra(a, argc), sa(a, argc), ra(a, argc);
+		if (!(is_sorted(*a)) && e < b && c < d && get_biggest(*a, 4)->number != e)
+			ra(a, argc), sa(a, argc), ra(a, argc);
+		if (!(is_sorted(*a)) && e < b && c < d && get_biggest(*a, 4)->number != d)
+			sa(a, argc), ra(a, argc), sa(a, argc);		
+		if (!(is_sorted(*a)) && e > b)
+			sa(a, argc);
+		if (!(is_sorted(*a)) && b > c)
+		{
+			if (c > d)
+				rra(a, argc), rra(a, argc), sa(a, argc);
+			else
+				ra(a, argc), ra(a, argc);
+		}
+	}
 }

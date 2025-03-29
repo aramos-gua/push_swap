@@ -59,7 +59,7 @@ void	set_target(t_stack *a, t_stack *b)
 		}
 		ft_printf("target_index value %li\n", target_index);
 		if (target_index == LONG_MIN)
-			a->target = get_biggest(b);
+			a->target = get_biggest(b, 2);
 		else
 			a->target = target;
 		ft_printf("\na->target: %d\n", a->target);
