@@ -20,6 +20,7 @@ typedef struct s_stack
 {
 	int				number;
 	int				position;
+	int				moves;
 	bool			above_median;
 	bool			fastest;
 	struct s_stack	*target;
@@ -44,3 +45,4 @@ int		get_median(t_stack *a, int size);
 void	position(t_stack *a, int len);
 void	set_target(t_stack *a, t_stack *b);
 void	sort_abcd(t_stack **a, int argc);
+int		ft_lstlen(t_stack *lst);

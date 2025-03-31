@@ -57,12 +57,31 @@ void	set_target(t_stack *a, t_stack *b)
 			}
 			current_b = current_b->next;
 		}
-		ft_printf("target_index value %li\n", target_index);
 		if (target_index == LONG_MIN)
 			a->target = get_biggest(b, 2);
 		else
 			a->target = target;
-		ft_printf("\na->target: %d\n", a->target);
+		a = a->next;
+	}
+}
+
+static void	get_cost_a(t_stack *a, t_stack *b)
+{
+	int	len_a;
+	int	len_a;
+
+	len_a = ft_lstlen(a);
+	len_b = ft_lstlen(b);
+
+	while (a)
+	{
+		a->moves = a->position;
+		if (!(a->above_median))
+			a->moves = len_a - (a->position);
+		if (a->target->->above_median)
+			a->moves += a->target->position;
+		else
+			a->moves += len_b - (a->target->position);
 		a = a->next;
 	}
 }

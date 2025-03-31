@@ -119,9 +119,9 @@ int	main(int argc, char **argv)
 		if (argc == 4)
 			sort_abc(&a, argc);
 		//median = get_median(a, argc - 1);
-		if (argc == 5)
-			sort_abcd(&a, argc);
-		//sort_algo(&a, &b, argc);
+		if (argc > 4)
+			//sort_abcd(&a, argc);
+			sort_algo(&a, &b, argc);
 	}
 		t_stack *temp;
 

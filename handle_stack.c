@@ -54,6 +54,15 @@ void	ident_a(t_stack *a, t_stack *b, int argc)
 	//set_price(a);
 }
 
+void	ident_b(t_stack *a, t_stack *b, int argc)
+{
+	position(b, argc);
+	//position(a, argc);
+	set_target(b, a);
+	//check_price(b, a);
+	//set_price(b);
+}
+
 void	sort_algo(t_stack **a, t_stack **b, int argc)
 {
 	int	len;
@@ -71,11 +80,11 @@ void	sort_algo(t_stack **a, t_stack **b, int argc)
 		len--;
 	}
 	sort_abc(a, len + 1);
-	//while (*b)
-	//{
-	//	ident_b(*a, *b);
-	//	btoa(*a, *b);
-	//}
+	while (*b)
+	{
+		ident_b(*a, *b, ft_lstlen(*b));
+		btoa(*a, *b);
+	}
 	//index(*a);
 }
 

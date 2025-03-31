@@ -44,3 +44,16 @@ t_stack	*get_biggest(t_stack *a, int n)
 	}
 	return (max_node);
 }
+
+int	ft_lstlen(t_stack *lst)
+{
+	int		size;
+
+	size = 0;
+	while (lst != NULL)
+	{
+		size++;
+		lst = lst -> next;
+	}
+	return (size);
+}
