@@ -6,7 +6,7 @@
 /*   By: Alejandro Ramos <alejandro.ramos.gua@gmai  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 18:54:34 by Alejandro Ram     #+#    #+#             */
-/*   Updated: 2025/04/01 11:13:31 by Alejandro Ram    ###   ########.fr       */
+/*   Updated: 2025/04/01 13:08:43 by Alejandro Ram    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,13 +69,15 @@ t_stack	*get_smallest(t_stack *lst, int n)
 
 int	ft_lstlen(t_stack *lst)
 {
+	t_stack	*temp;
 	int		size;
 
 	size = 0;
-	while (lst != NULL)
+	temp = lst;
+	while (temp != NULL)
 	{
 		size++;
-		lst = lst -> next;
+		temp = temp->next;
 	}
 	return (size);
 }

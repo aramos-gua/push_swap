@@ -6,7 +6,7 @@
 /*   By: Alejandro Ramos <alejandro.ramos.gua@gmai  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 14:10:15 by Alejandro Ram     #+#    #+#             */
-/*   Updated: 2025/04/01 11:14:19 by Alejandro Ram    ###   ########.fr       */
+/*   Updated: 2025/04/01 13:09:05 by Alejandro Ram    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void	sort_all(t_stack **a, t_stack ** b)
 	while (*b)
 	{
 		prepare_b_nodes(*a, *b);
+		*b = (*b)->next;
 	}
 }
 

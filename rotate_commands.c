@@ -6,7 +6,7 @@
 /*   By: aramos <alejandro.ramos.gua@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 10:38:05 by aramos            #+#    #+#             */
-/*   Updated: 2025/03/16 12:58:10 by aramos           ###   ########.fr       */
+/*   Updated: 2025/04/01 11:52:56 by Alejandro Ram    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,14 @@ void	reverse_rotate(t_stack **stack, char flag)
 	bef_last->next = NULL;
 	*stack = last;
 	if (flag == 'a')
-		ft_printf("rra");
+		ft_printf("rra\n");
 	else if (flag == 'b')
-		ft_printf("rrb");
+		ft_printf("rrb\n");
 }
 
 void	rrr(t_stack **a, t_stack **b)
 {
 	reverse_rotate(a, 'r');
 	reverse_rotate(b, 'r');
-	ft_printf("rrr");
+	ft_printf("rrr\n");
 }

@@ -6,7 +6,7 @@
 /*   By: aramos <alejandro.ramos.gua@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 14:10:30 by aramos            #+#    #+#             */
-/*   Updated: 2025/03/26 12:57:13 by aramos           ###   ########.fr       */
+/*   Updated: 2025/04/01 11:48:31 by Alejandro Ram    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,11 +107,20 @@ int	main(int argc, char **argv)
 	{
 		ft_printf("Not sorted\n");
 		if (argc == 3)
+		{
+			ft_printf("swaping elements\n");
 			swap(&a, 'a');
+		}
 		if (argc == 4)
+		{
+			ft_printf("starting sort_abc\n");
 			sort_abc(&a, argc);
+		}
 		else
+		{
+			ft_printf("starting sort_all\n");
 			sort_all(&a, &b);
+		}
 	}
 	return (0);
 }

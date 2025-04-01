@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   switch_commands.c                                  :+:      :+:    :+:   */
+/*   swap_commands.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aramos <alejandro.ramos.gua@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 13:03:04 by aramos            #+#    #+#             */
-/*   Updated: 2025/03/27 15:43:15 by Alejandro Ram    ###   ########.fr       */
+/*   Updated: 2025/04/01 13:07:46 by Alejandro Ram    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ void	swap(t_stack **stack, char flag)
 	if (third)
 		third->previous = first;
 	second->next = first;
-	first->next = second;
+	first->next = third;
 	*stack = second;
 	if (flag == 'a')
-		ft_printf("sa");
+		ft_printf("sa\n");
 	else if (flag == 'b')
-		ft_printf("sb");
+		ft_printf("sb\n");
 }
 
 void	ss(t_stack **a, t_stack **b)
