@@ -6,7 +6,7 @@
 /*   By: aramos <alejandro.ramos.gua@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 19:13:55 by aramos            #+#    #+#             */
-/*   Updated: 2025/04/01 16:29:51 by Alejandro Ram    ###   ########.fr       */
+/*   Updated: 2025/04/01 16:42:49 by Alejandro Ram    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ long	atoln(const char *str)
 		}
 		return (0);
 	}
-	while (ft_isdigit(*(str)))
+	while (ft_isdigit(*str))
 		num = num * 10 + (*str++ - '0');
 	return (num * sign);
 }
