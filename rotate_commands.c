@@ -13,7 +13,7 @@
 #include "push_swap.h"
 
 
-static void	rotate(t_stack **stack, char flag)
+void	rotate(t_stack **stack, char flag)
 {
 	t_stack	*first;
 	t_stack	*second;

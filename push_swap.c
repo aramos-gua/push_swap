@@ -91,7 +91,6 @@ int	main(int argc, char **argv)
 	t_stack	*a;
 	t_stack	*b;
 	int		flag;
-	//int		median;
 
 	a = NULL;
 	b = NULL;
@@ -106,31 +105,13 @@ int	main(int argc, char **argv)
 		ft_printf("Sorted!\n");
 	if (!(is_sorted(a)))
 	{
-		t_stack *temp;
-
-		temp = a;
 		ft_printf("Not sorted\n");
-		while (temp)
-		{
-			ft_printf(" %d -> ", (*temp).number);
-			temp = (*temp).next;
-		}
-		ft_printf("\n");
+		if (argc == 3)
+			swap(&a, 'a');
 		if (argc == 4)
 			sort_abc(&a, argc);
-		//median = get_median(a, argc - 1);
-		if (argc > 4)
-			//sort_abcd(&a, argc);
-			sort_algo(&a, &b, argc);
+		else
+			sort_all(&a, &b);
 	}
-		t_stack *temp;
-
-		temp = a;
-		while (temp)
-		{
-			ft_printf(" %d -> ", (*temp).number);
-			temp = (*temp).next;
-		}
-		ft_printf("\n");
 	return (0);
 }

@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static void	swap(t_stack **stack, char flag)
+void	swap(t_stack **stack, char flag)
 {
 	t_stack	*first;
 	t_stack	*second;

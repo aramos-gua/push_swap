@@ -34,15 +34,13 @@ long	atoln(const char *str);
 void	new_number(t_stack **stack, int number);
 
 // Commands
-void	sa(t_stack **a);
-void	sb(t_stack **b);
+void	swap(t_stack **stack, char flag);
 void	ss(t_stack **a, t_stack **b);
-
-void	pa(t_stack **a, t_stack **b);
-void	pb(t_stack **a, t_stack **b);
-
-void	ra(t_stack **a);
-void	rra(t_stack **a);
+void	push(t_stack **source, t_stack **dest, char flag);
+void	rotate(t_stack **stack, char flag);
+void	rr(t_stack **a, t_stack **b);
+void	reverse_rotate(t_stack **stack, char flag);
+void	rrr(t_stack **a, t_stack **b);
 
 // Traverse the linked list
 t_stack	*last_node(t_stack *lst);
@@ -53,10 +51,9 @@ void	position(t_stack *a, int len);
 // Traverse stack
 int		is_sorted(t_stack *a);
 t_stack	*get_biggest(t_stack *a, int n);
-void	set_target(t_stack *a, t_stack *b);
-int		get_median(t_stack *a, int size);
+//void	set_target(t_stack *a, t_stack *b);
+//int		get_median(t_stack *a, int size);
 
 // Sort
 void	sort_abc(t_stack **a, int argc);
-void	sort_algo(t_stack **a, t_stack **b, int argc);
-void	sort_abcd(t_stack **a, int argc);
+//void	sort_abcd(t_stack **a, int argc);

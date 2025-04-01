@@ -38,54 +38,11 @@ void	sort_abc(t_stack **a, int argc)
 	max_node = get_biggest(*a, argc - 1);
 	ft_printf("biggest:  %d\n", max_node->number);
 	if (*a == max_node)
-		ra(a, argc);
+		rotate(a, 'a');
 	else if ((*a)->next == max_node)
-		rra(a, argc);
+		reverse_rotate(a, 'a');
 	if ((*a)->number > ((*a)->next)->number)
-		sa(a, argc);
-}
-
-void	ident_a(t_stack *a, t_stack *b, int argc)
-{
-	position(a, argc);
-	//position(b, argc);
-	set_target(a, b);
-	//check_price(a, b);
-	//set_price(a);
-}
-
-void	ident_b(t_stack *a, t_stack *b, int argc)
-{
-	position(b, argc);
-	//position(a, argc);
-	set_target(b, a);
-	//check_price(b, a);
-	//set_price(b);
-}
-
-void	sort_algo(t_stack **a, t_stack **b, int argc)
-{
-	int	len;
-
-	len = argc - 1;
-	if (len-- > 3 && !(is_sorted(*a)))
-		pb(a, b);
-	if (len-- > 3 && !(is_sorted(*a)))
-		pb(a, b);
-	while (len > 3 && !(is_sorted(*a)))
-	{
-		ft_printf("Starting sort_algo\n");
-		ident_a(*a, *b, len);
-		//atob(*a, *b);
-		len--;
-	}
-	sort_abc(a, len + 1);
-	while (*b)
-	{
-		ident_b(*a, *b, ft_lstlen(*b));
-		btoa(*a, *b);
-	}
-	//index(*a);
+		swap(a, 'a');
 }
 
 //void	sort_abcd(t_stack **a, int argc)
