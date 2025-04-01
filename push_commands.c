@@ -12,36 +12,38 @@
 
 #include "push_swap.h"
 
-void	pb(t_stack **a, t_stack **b)
+static void	push(t_stack **source, t_stack **dest)
 {
 	t_stack	*temp;
 
-	if (*a == NULL)
+	if (!(*source))
 		return ;
-	temp = *a;
-	*a = (*a)->next;
-	if (*a)
-		(*a)->previous = NULL;
-	temp->next = *b;
-	if (*b)
-		(*b)->previous = temp;
-	*b = temp;
-	ft_printf("pa\n");
+	temp = *source;
+	*source = (*source)->next;
+	if (*source)
+		(*source)->previous = NULL;
+	temp->previous = NULL;
+	if (*dest)
+	{
+		temp->next = *dest;
+		(temp->next)->previous = temp;
+		*dest = temp;
+	}
+	else
+	{
+		*dest = temp;
+		temp->next = NULL;
+	}
+}
+
+void	pb(t_stack **a, t_stack **b)
+{
+	push(a, b);
+	ft_printf("pb\n");
 }
 
 void	pa(t_stack **a, t_stack **b)
 {
-	t_stack	*temp;
-
-	if (*b == NULL)
-		return ;
-	temp = *b;
-	*b = (*b)->next;
-	if (*b)
-		(*b)->previous = NULL;
-	temp->next = *a;
-	if (*a)
-		(*a)->previous = temp;
-	*a = temp;
-	ft_printf("pb\n");
+	push(b, a)
+	ft_printf("pa\n");
 }

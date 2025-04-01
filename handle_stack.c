@@ -88,33 +88,33 @@ void	sort_algo(t_stack **a, t_stack **b, int argc)
 	//index(*a);
 }
 
-void	sort_abcd(t_stack **a, int argc)
-{
-	int	e;
-	int	b;
-	int	c;
-	int	d;
-
-	e = (*a)->number;
-	b = ((*a)->next)->number;
-	c = (((*a)->next)->next)->number;
-	d = ((((*a)->next)->next)->next)->number;
-	if (argc == 5)
-	{
-	//	if (!(is_sorted(*a) && e == 2 && b == 3 && c == 1 && d == 4))
-	//		rra(a, argc), rra(a, argc), sa(a, argc), ra(a, argc);
-		if (!(is_sorted(*a)) && e < b && c < d && get_biggest(*a, 4)->number != e)
-			ra(a, argc), sa(a, argc), ra(a, argc);
-		if (!(is_sorted(*a)) && e < b && c < d && get_biggest(*a, 4)->number != d)
-			sa(a, argc), ra(a, argc), sa(a, argc);		
-		if (!(is_sorted(*a)) && e > b)
-			sa(a, argc);
-		if (!(is_sorted(*a)) && b > c)
-		{
-			if (c > d)
-				rra(a, argc), rra(a, argc), sa(a, argc);
-			else
-				ra(a, argc), ra(a, argc);
-		}
-	}
-}
+//void	sort_abcd(t_stack **a, int argc)
+//{
+//	int	e;
+//	int	b;
+//	int	c;
+//	int	d;
+//
+//	e = (*a)->number;
+//	b = ((*a)->next)->number;
+//	c = (((*a)->next)->next)->number;
+//	d = ((((*a)->next)->next)->next)->number;
+//	if (argc == 5)
+//	{
+//	//	if (!(is_sorted(*a) && e == 2 && b == 3 && c == 1 && d == 4))
+//	//		rra(a, argc), rra(a, argc), sa(a, argc), ra(a, argc);
+//		if (!(is_sorted(*a)) && e < b && c < d && get_biggest(*a, 4)->number != e)
+//			ra(a, argc), sa(a, argc), ra(a, argc);
+//		if (!(is_sorted(*a)) && e < b && c < d && get_biggest(*a, 4)->number != d)
+//			sa(a, argc), ra(a, argc), sa(a, argc);		
+//		if (!(is_sorted(*a)) && e > b)
+//			sa(a, argc);
+//		if (!(is_sorted(*a)) && b > c)
+//		{
+//			if (c > d)
+//				rra(a, argc), rra(a, argc), sa(a, argc);
+//			else
+//				ra(a, argc), ra(a, argc);
+//		}
+//	}
+//}

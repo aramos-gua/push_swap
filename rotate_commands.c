@@ -12,38 +12,34 @@
 
 #include "push_swap.h"
 
-void	ra(t_stack **a, int argc)
-{
-	t_stack	*last_one;
-	t_stack	*temp;
 
-	if (a == NULL || *a == NULL || argc == 2)
+static void	rotate(t_stack **stack, char flag)
+{
+	t_stack	*first;
+	t_stack	*second;
+	t_stack	*last;
+
+	if (!stack || !(*stack) || !(*stack)->next)
 		return ;
-	last_one = last_node(*a);
-	temp = *a;
-	*a = (*a)->next;
-	(*a)->previous = NULL;
-	last_one->next = temp;
-	temp->previous = last_one;
-	temp->next = NULL;
-	ft_printf("ra\n");
+	first = *stack;
+	second = first->next;
+	last = last_node(*stack);
+	first->next = NULL;
+	first->previous = last;
+	last->next = first;
+	second->previous = NULL;
+	*stack = second;
+	if(flag == 'a')
+		ft_printf("ra\n");
+	else if(flag == 'b')
+		ft_printf("rb\n");
 }
 
-void	rb(t_stack **b, int argc)
+void	rr(t_stack **a, t_stack **b)
 {
-	t_stack	*last_one;
-	t_stack	*temp;
-
-	if (b == NULL || *b == NULL || argc == 2)
-		return ;
-	last_one = last_node(*b);
-	temp = *b;
-	*b = (*b)->next;
-	(*b)->previous = NULL;
-	last_one->next = temp;
-	temp->previous = last_one;
-	temp->next = NULL;
-	ft_printf("rb\n");
+	rotate(a, 'r');
+	rotate(b, 'r');
+	ft_printf("rr\n");
 }
 
 void	rra(t_stack **a, int argc)

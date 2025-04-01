@@ -12,47 +12,47 @@
 
 #include "push_swap.h"
 
-void	sa(t_stack **a, int argc)
+static void	swap(t_stack **stack, int len_stack)
 {
-	t_stack	*temp;
+	t_stack	*first;
+	t_stack	*second;
+	t_stack	*third;
 
-	if (!a || !(*a) || argc < 3)
+	if (!stack || !(*stack) || len_stack < 2)
 		return ;
-	temp = *a;
-	*a = (*a)->next;
-	(*a)->previous = NULL;
-	temp->next = (*a)->next;
-	if (temp->next)
-	{
-		(temp->next)->previous = temp;
-	}
-	(*a)->next = temp;
-	temp->previous = *a;
+	first = *stack;
+	second = first->next;
+	third = second->next;
+	second->previous = NULL;
+	first->next = third;
+	if (third)
+		third->previous = first;
+	second->next = first;
+	first->next = second;
+	*stack = second;
+}
+
+void	sa(t_stack **a)
+{
+	int	len_stack;
+
+	len_stack = ft_lstlen(*a);
+	swap(a, len_stack);
 	ft_printf("sa\n");
 }
 
-void	sb(t_stack **b, int argc)
+void	sb(t_stack **b)
 {
-	t_stack	*temp;
-
-	if (!b || !(*b) || argc < 3)
-		return ;
-	temp = *b;
-	*b = (*b)->next;
-	(*b)->previous = NULL;
-	temp->next = (*b)->next;
-	if (temp->next)
-	{
-		(temp->next)->previous = temp;
-	}
-	(*b)->next = temp;
-	temp->previous = *b;
+	int	len_stack;
+	
+	len_stack = ft_lstlen(*b);
+	swap(b, len_stack);
 	ft_printf("sb\n");
 }
 
-void	ss(t_stack **a, t_stack **b, int argc)
+void	ss(t_stack **a, t_stack **b)
 {
-	sa(a, argc);
-	sb(b, argc);
+	swap(a, ft_lstlen(*a));
+	swap(b, ft_lstlen(*b));
 	ft_printf("ss\n");
 }
