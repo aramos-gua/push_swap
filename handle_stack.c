@@ -6,7 +6,7 @@
 /*   By: Alejandro Ramos <alejandro.ramos.gua@gmai  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 14:10:15 by Alejandro Ram     #+#    #+#             */
-/*   Updated: 2025/04/01 13:09:05 by Alejandro Ram    ###   ########.fr       */
+/*   Updated: 2025/04/01 14:01:08 by Alejandro Ram    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,37 +54,30 @@ void	sort_all(t_stack **a, t_stack ** b)
 	while (*b)
 	{
 		prepare_b_nodes(*a, *b);
-		*b = (*b)->next;
+		back_to_a(a, b);
 	}
+	indexation(*a);
+	set_receiver(a, get_smallest(*a, ft_lstlen(*a)), 'a');
 }
 
-//void	sort_abcd(t_stack **a, int argc)
-//{
-//	int	e;
-//	int	b;
-//	int	c;
-//	int	d;
-//
-//	e = (*a)->number;
-//	b = ((*a)->next)->number;
-//	c = (((*a)->next)->next)->number;
-//	d = ((((*a)->next)->next)->next)->number;
-//	if (argc == 5)
-//	{
-//	//	if (!(is_sorted(*a) && e == 2 && b == 3 && c == 1 && d == 4))
-//	//		rra(a, argc), rra(a, argc), sa(a, argc), ra(a, argc);
-//		if (!(is_sorted(*a)) && e < b && c < d && get_biggest(*a, 4)->number != e)
-//			ra(a, argc), sa(a, argc), ra(a, argc);
-//		if (!(is_sorted(*a)) && e < b && c < d && get_biggest(*a, 4)->number != d)
-//			sa(a, argc), ra(a, argc), sa(a, argc);		
-//		if (!(is_sorted(*a)) && e > b)
-//			sa(a, argc);
-//		if (!(is_sorted(*a)) && b > c)
-//		{
-//			if (c > d)
-//				rra(a, argc), rra(a, argc), sa(a, argc);
-//			else
-//				ra(a, argc), ra(a, argc);
-//		}
-//	}
-//}
+void	set_receiver(t_stack **stack, t_stack *target, char flag)
+{
+	while (*stack != target)
+	{
+		if (flag == 'a')
+		{
+			if (target->above_median)
+				rotate(stack, 'a');
+			else if (!(target->above_median))
+					reverse_rotate(stack, 'a');
+		}
+		else if (flag == 'b')
+		{
+			if (target->above_median)
+				rotate(stack, 'b');
+			else if (!(target->above_median))
+					reverse_rotate(stack, 'b');
+
+		}
+	}
+}

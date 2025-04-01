@@ -6,7 +6,7 @@
 /*   By: aramos <alejandro.ramos.gua@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 14:10:30 by aramos            #+#    #+#             */
-/*   Updated: 2025/04/01 11:48:31 by Alejandro Ram    ###   ########.fr       */
+/*   Updated: 2025/04/01 13:32:41 by Alejandro Ram    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,10 +102,10 @@ int	main(int argc, char **argv)
 	if (validate_input(argv, &a, flag, argc) == 1)
 		return (1);
 	if ((is_sorted(a)))
-		ft_printf("Sorted!\n");
+		ft_printf("SORTED!\n");
 	if (!(is_sorted(a)))
 	{
-		ft_printf("Not sorted\n");
+		ft_printf("NOT SORTED\n");
 		if (argc == 3)
 		{
 			ft_printf("swaping elements\n");
@@ -120,6 +120,12 @@ int	main(int argc, char **argv)
 		{
 			ft_printf("starting sort_all\n");
 			sort_all(&a, &b);
+		}
+		t_stack	*temp = a;
+		while (temp)
+		{
+			ft_printf(" %d -> ", temp->number);
+			temp = temp->next;
 		}
 	}
 	return (0);

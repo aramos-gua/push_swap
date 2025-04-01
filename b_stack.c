@@ -6,7 +6,7 @@
 /*   By: Alejandro Ramos <alejandro.ramos.gua@gmai  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 10:45:28 by Alejandro Ram     #+#    #+#             */
-/*   Updated: 2025/04/01 13:11:15 by Alejandro Ram    ###   ########.fr       */
+/*   Updated: 2025/04/01 13:57:04 by Alejandro Ram    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,16 @@ void	indexation(t_stack *stack)
 	}
 }
 
+void	back_to_a(t_stack **a, t_stack **b)
+{
+	set_receiver(a, (*b)->target, 'a');
+	push(b, a, 'a');
+}
+
 void	prepare_b_nodes(t_stack *a, t_stack *b)
 {
 	indexation(a);
 	indexation(b);
 	get_targets_b(a, b);
+	ft_printf("target for b node: %d\n", b->target->number);
 }
