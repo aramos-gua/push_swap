@@ -6,7 +6,7 @@
 /*   By: aramos <alejandro.ramos.gua@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 19:13:55 by aramos            #+#    #+#             */
-/*   Updated: 2025/03/11 19:42:14 by Alejandro Ram    ###   ########.fr       */
+/*   Updated: 2025/04/01 16:29:51 by Alejandro Ram    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 long	atoln(const char *str)
 {
-	long		num;
-	int			sign;
+	long			num;
+	int				sign;
 
 	sign = 1;
 	num = 0;
@@ -25,14 +25,14 @@ long	atoln(const char *str)
 	{
 		if (*str == '-')
 			sign *= -1;
-		if (ft_isdigit(*(str + 1)))
+		if (*(str + 1) && ft_isdigit(*(str + 1)))
 		{
 			str++;
 			break ;
 		}
 		return (0);
 	}
-	while (*str >= '0' && *str <= '9')
+	while (ft_isdigit(*(str)))
 		num = num * 10 + (*str++ - '0');
 	return (num * sign);
 }

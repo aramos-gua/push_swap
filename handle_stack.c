@@ -6,7 +6,7 @@
 /*   By: Alejandro Ramos <alejandro.ramos.gua@gmai  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 14:10:15 by Alejandro Ram     #+#    #+#             */
-/*   Updated: 2025/04/01 14:01:08 by Alejandro Ram    ###   ########.fr       */
+/*   Updated: 2025/04/01 14:16:24 by Alejandro Ram    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ void	sort_all(t_stack **a, t_stack ** b)
 	int	a_len;
 
 	a_len = ft_lstlen(*a);
+	if (a_len-- > 3 && !(is_sorted(*a)))
+		push(a, b, 'b');
 	if (a_len-- > 3 && !(is_sorted(*a)))
 		push(a, b, 'b');
 	sort_abc(a, a_len);
