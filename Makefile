@@ -22,6 +22,7 @@ SRC = ./push_swap.c\
 	  ./swap_commands.c\
 	  ./push_commands.c\
 	  ./get_median.c\
+	  ./b_stack.c
 
 OBJ = $(SRC:.c=.o)
 

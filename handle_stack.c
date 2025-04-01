@@ -6,7 +6,7 @@
 /*   By: Alejandro Ramos <alejandro.ramos.gua@gmai  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 14:10:15 by Alejandro Ram     #+#    #+#             */
-/*   Updated: 2025/03/27 16:21:51 by Alejandro Ram    ###   ########.fr       */
+/*   Updated: 2025/04/01 11:14:19 by Alejandro Ram    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,33 @@ int	is_sorted(t_stack *a)
 	return (1);
 }
 
-void	sort_abc(t_stack **a, int argc)
+void	sort_abc(t_stack **a, int a_len)
 {
 	t_stack	*max_node;
 
-	if (!(*a) || argc != 4)
+	if (!(*a) || a_len != 3)
 		return ;
-	ft_printf("will get biggest \n");
-	max_node = get_biggest(*a, argc - 1);
-	ft_printf("biggest:  %d\n", max_node->number);
+	max_node = get_biggest(*a, a_len);
 	if (*a == max_node)
 		rotate(a, 'a');
 	else if ((*a)->next == max_node)
 		reverse_rotate(a, 'a');
 	if ((*a)->number > ((*a)->next)->number)
 		swap(a, 'a');
+}
+
+void	sort_all(t_stack **a, t_stack ** b)
+{
+	int	a_len;
+
+	a_len = ft_lstlen(*a);
+	if (a_len-- > 3 && !(is_sorted(*a)))
+		push(a, b, 'b');
+	sort_abc(a, a_len);
+	while (*b)
+	{
+		prepare_b_nodes(*a, *b);
+	}
 }
 
 //void	sort_abcd(t_stack **a, int argc)
