@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static void	push(t_stack **source, t_stack **dest)
+static void	push(t_stack **source, t_stack **dest, char flag)
 {
 	t_stack	*temp;
 
@@ -34,16 +34,8 @@ static void	push(t_stack **source, t_stack **dest)
 		*dest = temp;
 		temp->next = NULL;
 	}
-}
-
-void	pb(t_stack **a, t_stack **b)
-{
-	push(a, b);
-	ft_printf("pb\n");
-}
-
-void	pa(t_stack **a, t_stack **b)
-{
-	push(b, a)
-	ft_printf("pa\n");
+	if (flag == 'a')
+		ft_printf("pa\n");
+	else if (flag == 'b')
+		ft_printf("pb\n");
 }

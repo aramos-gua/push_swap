@@ -12,12 +12,14 @@
 
 #include "push_swap.h"
 
-static void	swap(t_stack **stack, int len_stack)
+static void	swap(t_stack **stack, char flag)
 {
 	t_stack	*first;
 	t_stack	*second;
 	t_stack	*third;
+	int		len_stack;
 
+	len_stack = ft_lstlen(*stack);
 	if (!stack || !(*stack) || len_stack < 2)
 		return ;
 	first = *stack;
@@ -30,29 +32,15 @@ static void	swap(t_stack **stack, int len_stack)
 	second->next = first;
 	first->next = second;
 	*stack = second;
-}
-
-void	sa(t_stack **a)
-{
-	int	len_stack;
-
-	len_stack = ft_lstlen(*a);
-	swap(a, len_stack);
-	ft_printf("sa\n");
-}
-
-void	sb(t_stack **b)
-{
-	int	len_stack;
-	
-	len_stack = ft_lstlen(*b);
-	swap(b, len_stack);
-	ft_printf("sb\n");
+	if (flag == 'a')
+		ft_printf("sa");
+	else if (flag == 'b')
+		ft_printf("sb");
 }
 
 void	ss(t_stack **a, t_stack **b)
 {
-	swap(a, ft_lstlen(*a));
-	swap(b, ft_lstlen(*b));
+	swap(a, 's');
+	swap(b, 's');
 	ft_printf("ss\n");
 }

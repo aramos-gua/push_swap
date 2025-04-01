@@ -42,38 +42,31 @@ void	rr(t_stack **a, t_stack **b)
 	ft_printf("rr\n");
 }
 
-void	rra(t_stack **a, int argc)
+void	reverse_rotate(t_stack **stack, char flag)
 {
-	t_stack	*last_one;
-	t_stack	*second_last;
+	t_stack	*first;
+	t_stack	*last;
+	t_stack	*bef_last;
 
-	if (a == NULL || *a == NULL || (*a)->next == NULL || argc == 2)
+	if (!stack || !(*stack) || !(*stack)->next)
 		return ;
-	last_one = last_node(*a);
-	second_last = last_one->previous;
-	if (second_last)
-		second_last->next = NULL;
-	last_one->next = *a;
-	last_one->previous = NULL;
-	(*a)->previous = last_one;
-	*a = last_one;
-	ft_printf("rra\n");
+	first = *stack;
+	last = last_node(*stack);
+	bef_last = last->previous;
+	first->previous = last;
+	last->next = first;
+	last->previous = NULL;
+	bef_last->next = NULL;
+	*stack = last;
+	if (flag == 'a')
+		ft_printf("rra");
+	else if (flag == 'b')
+		ft_printf("rrb");
 }
 
-void	rrb(t_stack **b, int argc)
+void	rrr(t_stack **a, t_stack **b)
 {
-	t_stack	*last_one;
-	t_stack	*second_last;
-
-	if (b == NULL || *b == NULL || (*b)->next == NULL || argc == 2)
-		return ;
-	last_one = last_node(*b);
-	second_last = last_one->previous;
-	if (second_last)
-		second_last->next = NULL;
-	last_one->next = *b;
-	last_one->previous = NULL;
-	(*b)->previous = last_one;
-	*b = last_one;
-	ft_printf("rrb\n");
+	reverse_rotate(a, 'r');
+	reverse_rotate(b, 'r');
+	ft_printf("rrr");
 }
