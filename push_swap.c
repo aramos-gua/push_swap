@@ -6,7 +6,7 @@
 /*   By: aramos <alejandro.ramos.gua@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 14:10:30 by aramos            #+#    #+#             */
-/*   Updated: 2025/04/01 16:20:26 by Alejandro Ram    ###   ########.fr       */
+/*   Updated: 2025/04/01 17:18:55 by Alejandro Ram    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ static int	validate_input(char **argv, t_stack **a, int flag, int argc)
 		if (isnt_number(argv[i]))
 			return (free_all(a, argv, flag, argc), 1);
 		number = atoln((const char *)argv[i]);
-		ft_printf("number: %d\n", number);
+		ft_printf("number: % d\n", number);
 		if (number > INT_MAX || number < INT_MIN)
 			return (free_all(a, argv, flag, argc), 1);
 		number = (int)number;
@@ -104,29 +104,32 @@ int	main(int argc, char **argv)
 		argv = split_argv(argv[1], ' ', &argc, &flag);
 	if (validate_input(argv, &a, flag, argc) == 1)
 		return (1);
+	if (is_sorted(a))
+		ft_printf("IS SORTED!\n");
 	if (!(is_sorted(a)))
 	{
+		ft_printf("IS NOT SORTED!\n");
 		if (argc == 3)
 		{
-			//ft_printf("Starting swap\n");
+			ft_printf("Starting swap\n");
 			swap(&a, 'a');
 		}
 		if (argc == 4)
 		{
-			//ft_printf("Starting sort_abc\n");
+			ft_printf("Starting sort_abc\n");
 			sort_abc(&a, argc - 1);
 		}
 		else
 		{
-			//ft_printf("Starting sort_all\n");
+			ft_printf("Starting sort_all\n");
 			sort_all(&a, &b);
 		}
-		//t_stack	*temp = a;
-		//while (temp)
-		//{
-		//	ft_printf(" %d -> ", temp->number);
-		//	temp = temp->next;
-		//}
+		t_stack	*temp = a;
+		while (temp)
+		{
+			ft_printf(" %d -> ", temp->number);
+			temp = temp->next;
+		}
 	}
 	return (0);
 }
