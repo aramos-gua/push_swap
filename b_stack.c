@@ -72,4 +72,5 @@ void	prepare_b_nodes(t_stack *a, t_stack *b)
 	indexation(a);
 	indexation(b);
 	get_targets_b(a, b);
+	ft_printf("%d target is %d\n", (*b).number, (*b).target->number);
 }

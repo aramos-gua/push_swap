@@ -50,21 +50,21 @@ void	sort_all(t_stack **a, t_stack ** b)
 	a_len = ft_lstlen(*a);
 	if (a_len-- > 3 && !(is_sorted(*a)))
 	{
-		ft_printf("Pushing first time\n");
+		ft_printf("Pushing first time: %d to Stack B\n", (*a)->number);
 		push(a, b, 'b');
 	}
 	if (a_len-- > 3 && !(is_sorted(*a)))
 	{
-		ft_printf("Pushing second time\n");
+		ft_printf("Pushing second time: %d to Stack B\n", (*a)->number);
 		push(a, b, 'b');
 	}
 	while (a_len-- > 3 && !(is_sorted(*a)))
 	{
-		ft_printf("Pushing another time\n");
+		ft_printf("Pushing another time: %d to Stack B\n", (*a)->number);
 		prepare_a_nodes(*a, *b);
 		push(a, b, 'b');
 	}
-	ft_printf("Calling sort_abc, len of a: %d\n", a_len);
+	ft_printf("\nCalling sort_abc, len of a: %d\n", a_len);
 	sort_abc(a, a_len + 1);
 	t_stack	*temp = *a;
 	while (temp)
@@ -75,7 +75,7 @@ void	sort_all(t_stack **a, t_stack ** b)
 	ft_printf("done with sort_abc\n");
 	while (*b)
 	{
-		//ft_printf("preparing b nodes\n");
+		ft_printf("\npreparing b nodes\n");
 		prepare_b_nodes(*a, *b);
 		back_to_a(a, b);
 	}
