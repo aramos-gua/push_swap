@@ -51,6 +51,7 @@ void	position(t_stack *a, int len);
 // Prepare nodes
 void	back_to_a(t_stack **a, t_stack **b);
 void	set_receiver(t_stack **stack, t_stack *target, char flag);
+void	prepare_a_nodes(t_stack *a, t_stack *b);
 
 // Traverse stacks
 int		is_sorted(t_stack *a);
