@@ -31,5 +31,5 @@ void	free_all(t_stack **a, char **argv, int flag, int argc)
 		free (*a);
 		*a = temp;
 	}
-	ft_printf("Error\n");
+	write(2, "Error\n", 6);
 }

@@ -8,7 +8,6 @@ LIBFTDIR = ./libft
 
 # Target names
 NAME = push_swap
-
 LIBFT = $(LIBFTDIR)/libft.a
 
 # Files
@@ -26,19 +25,20 @@ SRC = ./push_swap.c\
 
 OBJ = $(SRC:.c=.o)
 
-# Create library for push_swap
+# Create the push_swap library
+$(LIBPUSH): $(OBJ)
+	@ar rcs $(LIBPUSH) $(OBJ)
+
+# Create executable, linking both libraries
 $(NAME): $(OBJ) $(LIBFT)
-	@cp $(LIBFT) libft.a
-	@ar rcs libft.a $(OBJ)
-	@mv libft.a $(NAME)
-	@rm *.o
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) -L$(LIBFTDIR) -lft
 
 # Compile .c files into .o files
 %.o: %.c
 	$(CC) $(CFLAGS) -I$(LIBFTDIR) -c $< -o $@
 
 # Build libft and push_swap libraries
-all: $(LIBFT) $(NAME)
+all: $(NAME)
 
 # Build libft inside its directory
 $(LIBFT):
@@ -56,3 +56,5 @@ fclean: clean
 
 # Rebuild everything
 re: fclean all
+
+.PHONY: all clean fclean re
