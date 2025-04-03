@@ -63,7 +63,6 @@ void	indexation(t_stack *stack)
 
 void	back_to_a(t_stack **a, t_stack **b)
 {
-	ft_printf("b's target is above median?: %d\n", (*b)->target->above_median);
 	set_receiver(a, (*b)->target, 'a');
 	push(b, a, 'a');
 }

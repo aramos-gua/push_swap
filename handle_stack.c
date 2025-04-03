@@ -75,7 +75,6 @@ void	sort_all(t_stack **a, t_stack ** b)
 	ft_printf("done with sort_abc\n");
 	while (*b)
 	{
-		ft_printf("\npreparing b nodes\n");
 		prepare_b_nodes(*a, *b);
 		back_to_a(a, b);
 	}

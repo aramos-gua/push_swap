@@ -16,10 +16,8 @@ t_stack	*last_node(t_stack *lst)
 {
 	if (!lst)
 		return (NULL);
-	while (lst -> next != NULL)
-	{
+	while (lst && lst -> next != NULL)
 		lst = lst -> next;
-	}
 	return (lst);
 }
 

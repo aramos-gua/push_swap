@@ -42,6 +42,17 @@ void	rr(t_stack **a, t_stack **b)
 	ft_printf("rr\n");
 }
 
+void print_stack(t_stack *stack)
+{
+    while (stack)
+    {
+        printf("%d -> ", stack->number);
+        stack = stack->next;
+    }
+    printf("NULL\n");
+}
+
+
 void	reverse_rotate(t_stack **stack, char flag)
 {
 	t_stack	*first;
@@ -53,10 +64,10 @@ void	reverse_rotate(t_stack **stack, char flag)
 	first = *stack;
 	last = last_node(*stack);
 	bef_last = last->previous;
-	first->previous = last;
+	if (bef_last)
+		bef_last->next = NULL;
 	last->next = first;
-	last->previous = NULL;
-	bef_last->next = NULL;
+	first->previous = last;
 	*stack = last;
 	if (flag == 'a')
 		ft_printf("rra\n");

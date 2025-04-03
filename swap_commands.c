@@ -30,7 +30,7 @@ void	swap(t_stack **stack, char flag)
 	if (third)
 		third->previous = first;
 	second->next = first;
-	first->next = third;
+	first->previous = second;
 	*stack = second;
 	if (flag == 'a')
 		ft_printf("sa\n");
