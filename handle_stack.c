@@ -89,10 +89,16 @@ void	set_receiver(t_stack **stack, t_stack *target, char flag)
 	{
 		if (flag == 'a')
 		{
-			if (target->above_median)
+			if (!(target->above_median))
+			{
+				ft_printf("WILL DO RA!\n");
 				rotate(stack, 'a');
-			else if (!(target->above_median))
-					reverse_rotate(stack, 'a');
+			}
+			else if (target->above_median)
+			{
+				ft_printf("WILL DO RRA!\n");
+				reverse_rotate(stack, 'a');
+			}
 		}
 		else if (flag == 'b')
 		{

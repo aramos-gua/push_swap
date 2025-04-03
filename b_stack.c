@@ -63,6 +63,7 @@ void	indexation(t_stack *stack)
 
 void	back_to_a(t_stack **a, t_stack **b)
 {
+	ft_printf("b's target is above median?: %d\n", (*b)->target->above_median);
 	set_receiver(a, (*b)->target, 'a');
 	push(b, a, 'a');
 }
@@ -72,5 +73,4 @@ void	prepare_b_nodes(t_stack *a, t_stack *b)
 	indexation(a);
 	indexation(b);
 	get_targets_b(a, b);
-	ft_printf("%d target is %d\n", (*b).number, (*b).target->number);
 }
