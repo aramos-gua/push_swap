@@ -30,24 +30,33 @@ static int	word_count(char *str, char c)
 	return (words);
 }
 
-static char	*fill_words(char *str, char c)
+static void	free_array(char **array, int size)
 {
-	static int	start_w = 0;
+	int	i;
+
+	i = 0;
+	while (i < size)
+		free(array[i++]);
+	free(array);
+}
+
+static char	*fill_words(char *str, char c, int *start_w)
+{
 	int			len_word;
 	char		*word;
 	int			i;
 
 	i = 0;
 	len_word = 0;
-	while (str[start_w] && str[start_w] == c)
-		start_w++;
-	while (str[start_w + len_word] && str[start_w + len_word] != c)
+	while (str[*start_w] && str[*start_w] == c)
+		(*start_w)++;
+	while (str[*start_w + len_word] && str[*start_w + len_word] != c)
 		++len_word;
 	word = malloc((len_word + 1) * sizeof(char));
 	if (!word)
 		return (NULL);
-	while (str[start_w] && str[start_w] != c)
-		word[i++] = str[start_w++];
+	while (str[*start_w] && str[*start_w] != c)
+		word[i++] = str[(*start_w)++];
 	word[i] = '\0';
 	return (word);
 }
@@ -56,24 +65,25 @@ char	**split_argv(char *str, char c, int *argc, int *flag)
 {
 	int		i;
 	int		words;
+	int		*start_w;
 	char	**array;
 
 	i = 0;
+	start_w = 0;
 	words = word_count(str, c);
 	array = malloc((words + 2) * sizeof(char *));
 	if (!array)
 		return (NULL);
+	array[i] = malloc(1 * sizeof(char));
+	if (!array[i])
+		return (free(array), NULL);
+	array[i++][0] = '\0';
 	while (words-- > 0)
 	{
-		if (i == 0)
-		{
-			array[i] = malloc(1 * sizeof(char));
-			if (!array[i])
-				return (NULL);
-			array[i][0] = '\0';
-			i++;
-		}
-		array[i++] = fill_words(str, c);
+		array[i] = fill_words(str, c, start_w);
+		if (!array[i])
+			return (free_array(array, i), NULL);
+		i++;
 	}
 	*flag = 1;
 	*argc = i;
