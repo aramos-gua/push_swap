@@ -59,8 +59,6 @@ t_stack	*get_biggest(t_stack *a, int n);
 t_stack	*get_smallest(t_stack *lst, int n);
 void	prepare_b_nodes(t_stack *a, t_stack *b);
 void	indexation(t_stack *stack);
-//void	set_target(t_stack *a, t_stack *b);
-//int		get_median(t_stack *a, int size);
 
 // Sort
 void	sort_abc(t_stack **a, int argc);

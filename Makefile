@@ -36,7 +36,7 @@ $(NAME): $(OBJ) $(LIBFT)
 
 # Compile .c files into .o files
 %.o: %.c
-	$(CC) $(CFLAGS) -I$(LIBFTDIR) -c $< -o $@
+	$(CC) $(CFLAGS) -I$(LIBFTDIR) -c $< -o $@ -g3
 
 # Build libft and push_swap libraries
 all: $(NAME)

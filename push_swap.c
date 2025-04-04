@@ -75,7 +75,6 @@ static int	validate_input(char **argv, t_stack **a, int flag, int argc)
 		if (isnt_number(argv[i]))
 			return (free_all(a, argv, flag, argc), 1);
 		number = atoln((const char *)argv[i]);
-	//	ft_printf("number: % d\n", number);
 		if (number > INT_MAX || number < INT_MIN)
 			return (free_all(a, argv, flag, argc), 1);
 		number = (int)number;
@@ -98,9 +97,7 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	flag = 0;
-	if (argc == 2 && !(argv[1][1]))
-		return (1);
-	if (argc == 1)
+	if ((argc == 2 && !(argv[1][1])) || argc == 1)
 		return (1);
 	if (argc == 2)
 		argv = split_argv(argv[1], ' ', &argc, &flag);
@@ -109,27 +106,12 @@ int	main(int argc, char **argv)
 	if (!(is_sorted(a)))
 	{
 		if (argc == 3)
-		{
 			swap(&a, 'a');
-		}
 		if (argc == 4)
-		{
 			sort_abc(&a, argc - 1);
-		}
 		else
-		{
 			sort_all(&a, &b);
-		}
-	//	if (is_sorted(a))
-	//	{
-	//		ft_printf("\nIS NOW SORTED!\n");
-	//		t_stack	*temp = a;
-	//		while (temp)
-	//		{
-	//			ft_printf(" %d -> ", temp->number);
-	//			temp = temp->next;
-	//		}
-	//	}
 	}
+	free_all(&a, argv, flag, argc);
 	return (0);
 }

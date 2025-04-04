@@ -54,18 +54,10 @@ void	sort_all(t_stack **a, t_stack ** b)
 		push(a, b, 'b');
 	while (a_len-- > 3 && !(is_sorted(*a)))
 	{
-	//	ft_printf("Pushing another time: %d to Stack B\n", (*a)->number);
 		prepare_a_nodes(*a, *b);
 		push(a, b, 'b');
 	}
-	//ft_printf("\nCalling sort_abc, len of a: %d\n", a_len);
 	sort_abc(a, a_len + 1);
-//	t_stack	*temp = *a;
-//	while (temp)
-//	{
-//		ft_printf(" %d -> ", (*temp).number);
-//		temp = temp->next;
-//	}
 	while (*b)
 	{
 		prepare_b_nodes(*a, *b);
@@ -82,15 +74,9 @@ void	set_receiver(t_stack **stack, t_stack *target, char flag)
 		if (flag == 'a')
 		{
 			if (target->above_median)
-			{
-	//			ft_printf("WILL DO RA!\n");
 				rotate(stack, 'a');
-			}
 			else if (!(target->above_median))
-			{
-	//			ft_printf("WILL DO RRA!\n");
 				reverse_rotate(stack, 'a');
-			}
 		}
 		else if (flag == 'b')
 		{

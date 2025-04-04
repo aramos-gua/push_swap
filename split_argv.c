@@ -60,7 +60,7 @@ char	**split_argv(char *str, char c, int *argc, int *flag)
 
 	i = 0;
 	words = word_count(str, c);
-	array = malloc((words + 1) * sizeof(char *));
+	array = malloc((words + 2) * sizeof(char *));
 	if (!array)
 		return (NULL);
 	while (words-- > 0)
