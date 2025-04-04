@@ -50,29 +50,29 @@ void	sort_all(t_stack **a, t_stack ** b)
 	a_len = ft_lstlen(*a);
 	if (a_len-- > 3 && !(is_sorted(*a)))
 	{
-		ft_printf("Pushing first time: %d to Stack B\n", (*a)->number);
+	//	ft_printf("Pushing first time: %d to Stack B\n", (*a)->number);
 		push(a, b, 'b');
 	}
 	if (a_len-- > 3 && !(is_sorted(*a)))
 	{
-		ft_printf("Pushing second time: %d to Stack B\n", (*a)->number);
+	//	ft_printf("Pushing second time: %d to Stack B\n", (*a)->number);
 		push(a, b, 'b');
 	}
 	while (a_len-- > 3 && !(is_sorted(*a)))
 	{
-		ft_printf("Pushing another time: %d to Stack B\n", (*a)->number);
+	//	ft_printf("Pushing another time: %d to Stack B\n", (*a)->number);
 		prepare_a_nodes(*a, *b);
 		push(a, b, 'b');
 	}
-	ft_printf("\nCalling sort_abc, len of a: %d\n", a_len);
+	//ft_printf("\nCalling sort_abc, len of a: %d\n", a_len);
 	sort_abc(a, a_len + 1);
-	t_stack	*temp = *a;
-	while (temp)
-	{
-		ft_printf(" %d -> ", (*temp).number);
-		temp = temp->next;
-	}
-	ft_printf("done with sort_abc\n");
+//	t_stack	*temp = *a;
+//	while (temp)
+//	{
+//		ft_printf(" %d -> ", (*temp).number);
+//		temp = temp->next;
+//	}
+	//ft_printf("done with sort_abc\n");
 	while (*b)
 	{
 		prepare_b_nodes(*a, *b);
@@ -90,12 +90,12 @@ void	set_receiver(t_stack **stack, t_stack *target, char flag)
 		{
 			if (!(target->above_median))
 			{
-				ft_printf("WILL DO RA!\n");
+	//			ft_printf("WILL DO RA!\n");
 				rotate(stack, 'a');
 			}
 			else if (target->above_median)
 			{
-				ft_printf("WILL DO RRA!\n");
+	//			ft_printf("WILL DO RRA!\n");
 				reverse_rotate(stack, 'a');
 			}
 		}
