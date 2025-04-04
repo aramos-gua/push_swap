@@ -99,7 +99,7 @@ int	main(int argc, char **argv)
 	b = NULL;
 	flag = 0;
 	if (argc == 2 && !(argv[1][1]))
-		return (write(2, "Error\n", 6), 1);
+		return (1);
 	if (argc == 1)
 		return (1);
 	if (argc == 2)
