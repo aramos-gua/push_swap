@@ -48,7 +48,7 @@ void	indexation(t_stack *stack)
 	i = 0;
 	if (!stack)
 		return ;
-	median = ft_lstlen(stack);
+	median = ft_lstlen(stack) / 2;
 	while (stack)
 	{
 		stack->index = i;

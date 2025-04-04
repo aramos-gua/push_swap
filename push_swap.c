@@ -106,36 +106,30 @@ int	main(int argc, char **argv)
 		argv = split_argv(argv[1], ' ', &argc, &flag);
 	if (validate_input(argv, &a, flag, argc) == 1)
 		return (1);
-//	if (is_sorted(a))
-//		ft_printf("IS SORTED!\n");
 	if (!(is_sorted(a)))
 	{
-	//	ft_printf("IS NOT SORTED!\n");
 		if (argc == 3)
 		{
-	//		ft_printf("Starting swap\n");
 			swap(&a, 'a');
 		}
 		if (argc == 4)
 		{
-	//		ft_printf("Starting sort_abc\n");
 			sort_abc(&a, argc - 1);
 		}
 		else
 		{
-	//		ft_printf("Starting sort_all\n");
 			sort_all(&a, &b);
 		}
-		if (is_sorted(a))
-		{
+	//	if (is_sorted(a))
+	//	{
 	//		ft_printf("\nIS NOW SORTED!\n");
-			t_stack	*temp = a;
-			while (temp)
-			{
+	//		t_stack	*temp = a;
+	//		while (temp)
+	//		{
 	//			ft_printf(" %d -> ", temp->number);
-				temp = temp->next;
-			}
-		}
+	//			temp = temp->next;
+	//		}
+	//	}
 	}
 	return (0);
 }
