@@ -53,9 +53,7 @@ int get_median(t_stack *a, int size)
 {
 	int	median;
     int	*arr;
-	int	i;
 
-	i = 0;
 	arr = list_to_array(a, size);
     if (!arr)
         return 0;

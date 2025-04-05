@@ -50,6 +50,7 @@ static char	*fill_words(char *str, char c, int *start_w)
 	len_word = 0;
 	while (str[*start_w] && str[*start_w] == c)
 		(*start_w)++;
+	ft_printf("All good until here\n");
 	while (str[*start_w + len_word] && str[*start_w + len_word] != c)
 		++len_word;
 	word = malloc((len_word + 1) * sizeof(char));
@@ -77,7 +78,8 @@ char	**split_argv(char *str, char c, int *argc, int *flag)
 	array[i] = malloc(1 * sizeof(char));
 	if (!array[i])
 		return (free(array), NULL);
-	array[i++][0] = '\0';
+	array[i][0] = '\0';
+	i++;
 	while (words-- > 0)
 	{
 		array[i] = fill_words(str, c, start_w);
