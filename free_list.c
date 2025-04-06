@@ -21,8 +21,9 @@ void	free_all(t_stack **a, char **argv, int flag, int argc)
 	if (flag == 1)
 	{
 		i -= 1;
-		while (i > 0)
+		while (i >= 0)
 			free(argv[i--]);
+		free(argv);
 	}
 	i = 1;
 	while (*a)
