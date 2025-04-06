@@ -20,7 +20,6 @@ SRC = ./push_swap.c\
 	  ./rotate_commands.c\
 	  ./swap_commands.c\
 	  ./push_commands.c\
-	  ./get_median.c\
 	  ./b_stack.c\
 	  ./ident_a.c
 

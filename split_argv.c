@@ -72,13 +72,8 @@ char	**split_argv(char *str, char c, int *argc, int *flag)
 	start_w = 0;
 	words = word_count(str, c);
 	array = malloc((words + 2) * sizeof(char *));
-	if (!array)
-		return (NULL);
-	array[i] = malloc(1 * sizeof(char));
-	if (!array[i])
-		return (free(array), NULL);
-	array[i][0] = '\0';
-	i++;
+	if (!array || !(array[i] = malloc(1))) return(NULL);
+	array[i++][0] = '\0';
 	while (words-- > 0)
 	{
 		array[i] = fill_words(str, c, &start_w);
