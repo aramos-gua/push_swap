@@ -72,7 +72,11 @@ char	**split_argv(char *str, char c, int *argc, int *flag)
 	start_w = 0;
 	words = word_count(str, c);
 	array = malloc((words + 2) * sizeof(char *));
-	if (!array || !(array[i] = malloc(1))) return(NULL);
+	if (!array)
+		return (NULL);
+	array[i] = malloc(sizeof(char));
+	if (!array[i])
+		return (NULL);
 	array[i++][0] = '\0';
 	while (words-- > 0)
 	{
@@ -81,8 +85,7 @@ char	**split_argv(char *str, char c, int *argc, int *flag)
 			return (free_array(array, i), NULL);
 		i++;
 	}
-	*flag = 1;
 	*argc = i;
 	array[i] = NULL;
-	return (array);
+	return (*flag = 1, array);
 }
