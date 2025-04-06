@@ -112,6 +112,6 @@ int	main(int argc, char **argv)
 		else
 			sort_all(&a, &b);
 	}
-	free_all(&a, argv, flag, argc);
+	free_end(&a, argv, flag, argc);
 	return (0);
 }

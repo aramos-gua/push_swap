@@ -34,3 +34,25 @@ void	free_all(t_stack **a, char **argv, int flag, int argc)
 	}
 	write(2, "Error\n", 6);
 }
+
+void	free_end(t_stack **a, char **argv, int flag, int argc)
+{
+	int		i;
+	t_stack	*temp;
+
+	i = argc;
+	if (flag == 1)
+	{
+		i -= 1;
+		while (i >= 0)
+			free(argv[i--]);
+		free(argv);
+	}
+	i = 1;
+	while (*a)
+	{
+		temp = (*a)->next;
+		free (*a);
+		*a = temp;
+	}
+}

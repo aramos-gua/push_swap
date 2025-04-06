@@ -47,6 +47,7 @@ t_stack	*last_node(t_stack *lst);
 void	free_all(t_stack **a, char **argv, int flag, int argc);
 int		ft_lstlen(t_stack *lst);
 void	position(t_stack *a, int len);
+void	free_end(t_stack **a, char **argv, int flag, int argc);
 
 // Prepare nodes
 void	back_to_a(t_stack **a, t_stack **b);
