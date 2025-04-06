@@ -17,7 +17,7 @@ static int	isnt_number(char *str)
 	if (!(*str == '-' || *str == '+' || ft_isdigit(*str)))
 		return (1);
 	if ((*str == '-' || *str == '+') && !ft_isdigit(str[1]))
-		return(1);
+		return (1);
 	while (*(++str))
 	{
 		if (!(ft_isdigit(*str)))

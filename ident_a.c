@@ -46,7 +46,6 @@ static void	get_cost_a(t_stack *a, t_stack *b)
 
 	len_a = ft_lstlen(a);
 	len_b = ft_lstlen(b);
-
 	while (a)
 	{
 		a->moves = a->index;

@@ -43,7 +43,7 @@ void	sort_abc(t_stack **a, int a_len)
 		swap(a, 'a');
 }
 
-void	sort_all(t_stack **a, t_stack ** b)
+void	sort_all(t_stack **a, t_stack **b)
 {
 	int	a_len;
 
@@ -83,8 +83,7 @@ void	set_receiver(t_stack **stack, t_stack *target, char flag)
 			if (target->above_median)
 				rotate(stack, 'b');
 			else if (!(target->above_median))
-					reverse_rotate(stack, 'b');
-
+				reverse_rotate(stack, 'b');
 		}
 	}
 }

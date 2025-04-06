@@ -12,7 +12,6 @@
 
 #include "push_swap.h"
 
-
 void	rotate(t_stack **stack, char flag)
 {
 	t_stack	*first;
@@ -29,9 +28,9 @@ void	rotate(t_stack **stack, char flag)
 	last->next = first;
 	second->previous = NULL;
 	*stack = second;
-	if(flag == 'a')
+	if (flag == 'a')
 		ft_printf("ra\n");
-	else if(flag == 'b')
+	else if (flag == 'b')
 		ft_printf("rb\n");
 }
 
@@ -42,16 +41,15 @@ void	rr(t_stack **a, t_stack **b)
 	ft_printf("rr\n");
 }
 
-void print_stack(t_stack *stack)
+void	print_stack(t_stack *stack)
 {
-    while (stack)
-    {
-        printf("%d -> ", stack->number);
-        stack = stack->next;
-    }
-    printf("NULL\n");
+	while (stack)
+	{
+		printf("%d -> ", stack->number);
+		stack = stack->next;
+	}
+	printf("NULL\n");
 }
-
 
 void	reverse_rotate(t_stack **stack, char flag)
 {
