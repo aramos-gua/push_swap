@@ -6,7 +6,7 @@
 /*   By: Alejandro Ramos <alejandro.ramos.gua@gmai  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 15:40:26 by Alejandro Ram     #+#    #+#             */
-/*   Updated: 2025/04/07 08:33:47 by Alejandro Ram    ###   ########.fr       */
+/*   Updated: 2025/04/07 08:45:49 by Alejandro Ram    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,12 +97,14 @@ void	a_to_b(t_stack **a, t_stack **b)
 	t_stack	*fastest;
 
 	fastest = get_fastest(*a);
+	ft_printf("fastest is: %d\n", fastest->number);//It works up until here. blocking printf of pb prints this
 	if (fastest->above_median && fastest->target->above_median)
 		both_rs(a, b, fastest, 2);
 	else if (!(fastest->above_median && fastest->target->above_median))
 		both_rs(a, b, fastest, 3);
 	set_receiver(a, fastest, 'a');
 	set_receiver(a, fastest->target, 'b');
+	push(b, a, 'b');
 }
 
 void	prepare_a_nodes(t_stack *a, t_stack *b)
