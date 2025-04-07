@@ -97,13 +97,12 @@ void	a_to_b(t_stack **a, t_stack **b)
 	t_stack	*fastest;
 
 	fastest = get_fastest(*a);
-	ft_printf("fastest is: %d\n", fastest->number);//It works up until here. blocking printf of pb prints this
-	if (fastest->above_median && fastest->target->above_median)
+	if ((fastest->above_median && fastest->target->above_median))
 		both_rs(a, b, fastest, 2);
 	else if (!(fastest->above_median && fastest->target->above_median))
 		both_rs(a, b, fastest, 3);
 	set_receiver(a, fastest, 'a');
-	set_receiver(a, fastest->target, 'b');
+	set_receiver(b, fastest->target, 'b');
 	push(b, a, 'b');
 }
 

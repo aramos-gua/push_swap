@@ -112,6 +112,12 @@ int	main(int argc, char **argv)
 		else
 			sort_all(&a, &b);
 	}
+	t_stack	*temp = a;
+	while (temp)
+	{
+		ft_printf(" %d ->", temp->number);
+		temp = temp->next;
+	}
 	free_end(&a, argv, flag, argc);
 	return (0);
 }
