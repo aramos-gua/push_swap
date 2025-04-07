@@ -6,7 +6,7 @@
 /*   By: aramos <alejandro.ramos.gua@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 10:38:05 by aramos            #+#    #+#             */
-/*   Updated: 2025/04/01 11:52:56 by Alejandro Ram    ###   ########.fr       */
+/*   Updated: 2025/04/07 08:32:06 by Alejandro Ram    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,6 @@ void	rr(t_stack **a, t_stack **b)
 	ft_printf("rr\n");
 }
 
-void	print_stack(t_stack *stack)
-{
-	while (stack)
-	{
-		printf("%d -> ", stack->number);
-		stack = stack->next;
-	}
-	printf("NULL\n");
-}
-
 void	reverse_rotate(t_stack **stack, char flag)
 {
 	t_stack	*first;
@@ -78,4 +68,20 @@ void	rrr(t_stack **a, t_stack **b)
 	reverse_rotate(a, 'r');
 	reverse_rotate(b, 'r');
 	ft_printf("rrr\n");
+}
+
+void	both_rs(t_stack **a, t_stack **b, t_stack *fastest, int flag)
+{
+	if (flag == 2)
+	{
+		while (*b != fastest->target && *a != fastest)
+			rr(a, b);
+	}
+	else if (flag == 3)
+	{
+		while (*b != fastest->target && *a != fastest)
+			rrr(a, b);
+	}
+	indexation(*a);
+	indexation(*b);
 }

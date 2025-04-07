@@ -6,7 +6,7 @@
 /*   By: Alejandro Ramos <alejandro.ramos.gua@gmai  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 15:40:26 by Alejandro Ram     #+#    #+#             */
-/*   Updated: 2025/03/27 16:52:35 by Alejandro Ram    ###   ########.fr       */
+/*   Updated: 2025/04/07 08:33:47 by Alejandro Ram    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static void	get_cost_a(t_stack *a, t_stack *b)
 	}
 }
 
-void	get_fastest(t_stack *stack)
+void	set_fastest(t_stack *stack)
 {
 	long	least_moves;
 	t_stack	*fastest;
@@ -79,11 +79,37 @@ void	get_fastest(t_stack *stack)
 	fastest->fastest = true;
 }
 
+t_stack	*get_fastest(t_stack *stack)
+{
+	if (!stack)
+		return (NULL);
+	while (stack)
+	{
+		if (stack->fastest)
+			return (stack);
+		stack = stack->next;
+	}
+	return (NULL);
+}
+
+void	a_to_b(t_stack **a, t_stack **b)
+{
+	t_stack	*fastest;
+
+	fastest = get_fastest(*a);
+	if (fastest->above_median && fastest->target->above_median)
+		both_rs(a, b, fastest, 2);
+	else if (!(fastest->above_median && fastest->target->above_median))
+		both_rs(a, b, fastest, 3);
+	set_receiver(a, fastest, 'a');
+	set_receiver(a, fastest->target, 'b');
+}
+
 void	prepare_a_nodes(t_stack *a, t_stack *b)
 {
 	indexation(a);
 	indexation(b);
 	get_targets_a(a, b);
 	get_cost_a(a, b);
-	get_fastest(a);
+	set_fastest(a);
 }

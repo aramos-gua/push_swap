@@ -6,7 +6,7 @@
 /*   By: aramos <alejandro.ramos.gua@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 14:10:25 by aramos            #+#    #+#             */
-/*   Updated: 2025/04/01 14:07:07 by Alejandro Ram    ###   ########.fr       */
+/*   Updated: 2025/04/07 08:35:13 by Alejandro Ram    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	rotate(t_stack **stack, char flag);
 void	rr(t_stack **a, t_stack **b);
 void	reverse_rotate(t_stack **stack, char flag);
 void	rrr(t_stack **a, t_stack **b);
+void	both_rs(t_stack **a, t_stack **b, t_stack *fastest, int flag);
 
 // Traverse the linked list
 t_stack	*last_node(t_stack *lst);
@@ -50,6 +51,7 @@ void	position(t_stack *a, int len);
 void	free_end(t_stack **a, char **argv, int flag, int argc);
 
 // Prepare nodes
+void	a_to_b(t_stack **a, t_stack **b);
 void	back_to_a(t_stack **a, t_stack **b);
 void	set_receiver(t_stack **stack, t_stack *target, char flag);
 void	prepare_a_nodes(t_stack *a, t_stack *b);

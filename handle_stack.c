@@ -6,7 +6,7 @@
 /*   By: Alejandro Ramos <alejandro.ramos.gua@gmai  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 14:10:15 by Alejandro Ram     #+#    #+#             */
-/*   Updated: 2025/04/01 14:16:24 by Alejandro Ram    ###   ########.fr       */
+/*   Updated: 2025/04/07 08:34:51 by Alejandro Ram    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	sort_all(t_stack **a, t_stack **b)
 	while (a_len-- > 3 && !(is_sorted(*a)))
 	{
 		prepare_a_nodes(*a, *b);
-		push(a, b, 'b');
+		a_to_b(a, b);
 	}
 	sort_abc(a, a_len + 1);
 	while (*b)
