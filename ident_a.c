@@ -103,7 +103,7 @@ void	a_to_b(t_stack **a, t_stack **b)
 		both_rs(a, b, fastest, 3);
 	set_receiver(a, fastest, 'a');
 	set_receiver(b, fastest->target, 'b');
-	push(b, a, 'b');
+	push(a, b, 'b');
 }
 
 void	prepare_a_nodes(t_stack *a, t_stack *b)

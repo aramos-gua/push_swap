@@ -26,7 +26,7 @@ void	push(t_stack **source, t_stack **dest, char flag)
 	if (*dest)
 	{
 		temp->next = *dest;
-		(temp->next)->previous = temp;
+		(*dest)->previous = temp;
 		*dest = temp;
 	}
 	else
