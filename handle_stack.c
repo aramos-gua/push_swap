@@ -28,10 +28,12 @@ int	is_sorted(t_stack *a)
 	return (1);
 }
 
-void	sort_abc(t_stack **a, int a_len)
+void	sort_abc(t_stack **a)
 {
 	t_stack	*max_node;
+	int		a_len;
 
+	a_len = ft_lstlen(*a);
 	if (!(*a) || a_len != 3)
 		return ;
 	max_node = get_biggest(*a, a_len);
@@ -57,7 +59,7 @@ void	sort_all(t_stack **a, t_stack **b)
 		prepare_a_nodes(*a, *b);
 		a_to_b(a, b);
 	}
-	sort_abc(a, a_len + 1);
+	sort_abc(a);
 	while (*b)
 	{
 		prepare_b_nodes(*a, *b);

@@ -64,5 +64,5 @@ void	prepare_b_nodes(t_stack *a, t_stack *b);
 void	indexation(t_stack *stack);
 
 // Sort
-void	sort_abc(t_stack **a, int argc);
+void	sort_abc(t_stack **a);
 void	sort_all(t_stack **a, t_stack **b);
