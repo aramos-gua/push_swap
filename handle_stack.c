@@ -54,7 +54,7 @@ void	sort_all(t_stack **a, t_stack **b)
 		push(a, b, 'b');
 	if (a_len-- > 3 && !(is_sorted(*a)))
 		push(a, b, 'b');
-	while (a_len-- > 75 && !(is_sorted(*a)))
+	while (a_len-- > 3 && !(is_sorted(*a)))
 	{
 		prepare_a_nodes(*a, *b);
 		a_to_b(a, b);
