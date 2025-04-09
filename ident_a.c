@@ -99,7 +99,7 @@ void	a_to_b(t_stack **a, t_stack **b)
 	fastest = get_fastest(*a);
 	if ((fastest->above_median && fastest->target->above_median))
 		both_rs(a, b, fastest, 2);
-	else if (!(fastest->above_median && fastest->target->above_median))
+	else if (!(fastest->above_median) && !(fastest->target->above_median))
 		both_rs(a, b, fastest, 3);
 	set_receiver(a, fastest, 'a');
 	set_receiver(b, fastest->target, 'b');

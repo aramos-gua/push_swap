@@ -108,7 +108,7 @@ int	main(int argc, char **argv)
 		if (argc == 3)
 			swap(&a, 'a');
 		if (argc == 4)
-			sort_abc(&a, argc - 1);
+			sort_abc(&a);
 		else
 			sort_all(&a, &b);
 	}

@@ -80,7 +80,9 @@ void	both_rs(t_stack **a, t_stack **b, t_stack *fastest, int flag)
 	else if (flag == 3)
 	{
 		while (*b != fastest->target && *a != fastest)
+		{
 			rrr(a, b);
+		}
 	}
 	indexation(*a);
 	indexation(*b);
