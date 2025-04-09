@@ -81,7 +81,7 @@ static int	validate_input(char **argv, t_stack **a, int flag, int argc)
 		if (is_repeated(number, *a))
 			return (free_all(a, argv, flag, argc), 1);
 		if (argc == 2)
-			return (free_all(a, argv, flag, argc), 1);
+			return (free_end(a, argv, flag, argc), 1);
 		new_number(a, number);
 		i++;
 	}
@@ -97,8 +97,8 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	flag = 0;
-	if ((argc == 2 && !(argv[1][1])) || argc == 1)
-		return (1);
+	if (!(argv[1][0]))
+		return (write(2, "Error\n", 6), 1);
 	if (argc == 2)
 		argv = split_argv(argv[1], ' ', &argc, &flag);
 	if (validate_input(argv, &a, flag, argc) == 1)

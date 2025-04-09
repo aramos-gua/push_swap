@@ -72,7 +72,7 @@ char	**split_argv(char *str, char c, int *argc, int *flag)
 	start_w = 0;
 	words = word_count(str, c);
 	array = malloc((words + 2) * sizeof(char *));
-	if (!array)
+	if (!array || !str)
 		return (NULL);
 	array[i] = malloc(sizeof(char));
 	if (!array[i])
