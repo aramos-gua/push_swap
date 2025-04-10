@@ -1,8 +1,9 @@
-# Color def
+# Text styles
 DEL_LINE =		\033[2K
-ITALIC =		\033[3m
 BOLD =			\033[1m
 DEF_COLOR =		\033[0;39m
+
+# Basic bright colors
 GRAY =			\033[0;90m
 RED =			\033[0;91m
 GREEN =			\033[0;92m
@@ -10,6 +11,8 @@ YELLOW =		\033[0;93m
 BLUE =			\033[0;94m
 MAGENTA =		\033[0;95m
 CYAN =			\033[0;96m
+
+# Other colors
 WHITE =			\033[0;97m
 BLACK =			\033[0;99m
 ORANGE =		\033[38;5;209m
@@ -76,6 +79,7 @@ clean:
 fclean: clean
 	@rm -f $(NAME)
 	@make -C $(LIBFTDIR) fclean
+	@echo "${GREEN} Cleaned ${NAME} ${DEF_COLOR}"
 
 # Rebuild everything
 re: fclean all
