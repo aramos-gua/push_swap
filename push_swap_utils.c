@@ -79,3 +79,16 @@ int	ft_lstlen(t_stack *lst)
 	}
 	return (size);
 }
+
+t_stack	*get_fastest(t_stack *stack)
+{
+	if (!stack)
+		return (NULL);
+	while (stack)
+	{
+		if (stack->fastest)
+			return (stack);
+		stack = stack->next;
+	}
+	return (NULL);
+}

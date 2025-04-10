@@ -45,93 +45,19 @@ void	sort_abc(t_stack **a)
 		swap(a, 'a');
 }
 
-int	has_chunk_elements(t_stack *stack, int min, int max)
-{
-	while (stack)
-	{
-		if (stack->number >= min && stack->number <=max)
-			return (1);
-		stack = stack->next;
-	}
-	return (0);
-}
-
-int	find_closest_chunk_element(t_stack *stack, int min, int max)
-{
-	int	pos = 0;
-	int closest_pos = -1;
-	int stack_size = ft_lstlen(stack);
-	int	min_distance = stack_size;
-
-	while (stack)
-	{
-		if (stack->number >= min && stack->number <= max)
-		{
-			int	distance = pos;
-			if (pos > (stack_size / 2))
-				distance = stack_size - pos;
-			if (distance < min_distance)
-			{
-				min_distance = distance;
-				closest_pos = pos;
-			}
-		}
-		stack = stack->next;
-		pos++;
-	}
-	return (closest_pos);
-}
-
-void	rotate_to_position(t_stack **stack, int pos, char flag)
-{
-	int	stack_size = ft_lstlen(*stack);
-
-	if (pos <= (stack_size / 2))
-	{
-		while (pos-- > 0)
-			rotate(stack, flag);
-	}
-	else
-	{
-		pos = stack_size - pos;
-		while (pos-- > 0)
-			reverse_rotate(stack, flag);
-	}
-}
-
 void	sort_all(t_stack **a, t_stack **b)
 {
-	t_stack	*max_node;
-	t_stack	*min_node;
-	int		chunk_size;
-	int		chunk_count;
-	int		min_val;
-	int		max_val;
-	int		a_len;
-	int		i;
+	int	a_len;
 
-	i = 0;
-	chunk_count = 5;
 	a_len = ft_lstlen(*a);
-	max_node = get_biggest(*a, a_len);
-	min_node = get_smallest(*a, a_len);
-	max_val = max_node->number;
-	min_val = min_node->number;
-	chunk_size = (max_val - min_val)/ chunk_count + 1;
-	while (i < chunk_count)
+	if (a_len-- > 3 && !(is_sorted(*a)))
+		push(a, b, 'b');
+	if (a_len-- > 3 && !(is_sorted(*a)))
+		push(a, b, 'b');
+	while (a_len-- > 3 && !(is_sorted(*a)))
 	{
-		int	chunk_min = min_val + (i *chunk_size);
-		int	chunk_max = chunk_min + chunk_size - 1;
-		while (has_chunk_elements(*a, chunk_min, chunk_max) && a_len > 3)
-		{
-			//t_stack	*current = *a;
-			int	closest_pos = find_closest_chunk_element(*a, chunk_min, chunk_max);
-
-			rotate_to_position(a, closest_pos, 'a');
-			push(a, b, 'b');
-			a_len--;
-		}
-		i++;
+		prepare_a_nodes(*a, *b);
+		a_to_b(a, b);
 	}
 	sort_abc(a);
 	while (*b)

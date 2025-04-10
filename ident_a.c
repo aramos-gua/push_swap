@@ -79,19 +79,6 @@ void	set_fastest(t_stack *stack)
 	fastest->fastest = true;
 }
 
-t_stack	*get_fastest(t_stack *stack)
-{
-	if (!stack)
-		return (NULL);
-	while (stack)
-	{
-		if (stack->fastest)
-			return (stack);
-		stack = stack->next;
-	}
-	return (NULL);
-}
-
 void	a_to_b(t_stack **a, t_stack **b)
 {
 	t_stack	*fastest;
