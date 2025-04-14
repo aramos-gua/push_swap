@@ -32,6 +32,7 @@ typedef struct s_stack
 char	**split_argv(char *str, char c, int *argc, int *flag);
 long	atoln(const char *str);
 void	new_number(t_stack **stack, int number);
+int		word_count(char *str, char c);
 
 // Commands
 void	swap(t_stack **stack, char flag);
